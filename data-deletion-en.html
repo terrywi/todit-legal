@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todit Data Deletion</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit legal documents</a> · <a href="data-deletion.html">한국어</a></div>
+  <h1>Todit Data Deletion</h1>
+  <p class="meta">App: Todit · Package: com.todit.todaydoit · Developer: TerryWi · Effective 25 September 2026</p>
+
+  <p>Todit is a personal to-do app for capturing tasks and managing them by date, repetition and reminders. As a rule, to-do records are stored only on the user’s device, and the Provider does not operate its own separate server that stores users’ to-do data. Users can delete their own data, or request deletion, in the following ways.</p>
+
+  <h2>1. Delete in the app (processed immediately)</h2>
+  <ul>
+    <li><b>Delete a task</b> — swipe the row left and choose “Delete”: the item is kept in “Recently deleted” for 30 days so it can be restored, then permanently deleted from the device.</li>
+    <li><b>Delete Drive backups</b> — Settings &gt; Account &gt; “Sign out” &gt; “Also delete backups in Drive”: backup files stored in the app-specific folder (appDataFolder) of the user’s own Google Drive are deleted immediately via the Google Drive API.</li>
+    <li><b>Sign out</b> — Settings &gt; Account: the Google sign-in is disconnected immediately.</li>
+    <li><b>Uninstall the app</b>: all local records stored on the device, including anything still in “Recently deleted”, are deleted along with it.</li>
+  </ul>
+
+  <h2>2. Request deletion by email</h2>
+  <p>Because the Provider operates no server holding users’ to-do data, everything to be deleted is on the user’s device and in the user’s own Google Drive. If you would still like help with the deletion steps, or confirmation regarding deletion related to account linking, you can write to <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a>. The Provider will act without delay (within 7 business days) and reply with the outcome. Please put “Data deletion request” in the subject line.</p>
+
+  <h2>3. What is deleted and what is retained</h2>
+  <table>
+    <tr><th>Data type</th><th>Where it is stored</th><th>How / when it is deleted</th><th>Retention after deletion</th></tr>
+    <tr>
+      <td>To-do records (tasks and subtasks, notes, dates and times, repetition and reminder settings, completion history, app settings)</td>
+      <td>User’s device (local SQLite)</td>
+      <td>Immediately on uninstalling the app</td>
+      <td>None (not held on any server)</td>
+    </tr>
+    <tr>
+      <td>Deleted tasks</td>
+      <td>User’s device (“Recently deleted”)</td>
+      <td>Permanently deleted 30 days after deletion (immediately if the app is uninstalled)</td>
+      <td>Up to 30 days</td>
+    </tr>
+    <tr>
+      <td>Google Drive backup files (JSON copy of local records)</td>
+      <td>The user’s own Google Drive appDataFolder</td>
+      <td>Immediately, if “Also delete backups in Drive” is selected when signing out</td>
+      <td>None (only the 3 most recent backups are kept)</td>
+    </tr>
+    <tr>
+      <td>Google sign-in information (email, account identifier)</td>
+      <td>Google authentication (OAuth)</td>
+      <td>Disconnected immediately on “Sign out”</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Advertising identifier, device information, diagnostic data</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Reset the Ad ID or turn off personalization in device Settings &gt; Privacy &gt; Ads</td>
+      <td>Subject to Google’s privacy policy and retention periods</td>
+    </tr>
+  </table>
+
+  <p>To keep your records before changing devices, you can export them as a JSON file under Settings &gt; Data &gt; “Backup &amp; export”. For details of how personal information is processed, please see the <a href="privacy-en.html">Todit Privacy Policy</a>.</p>
+
+  <p class="contact">Contact: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todit 데이터 삭제 요청 안내</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit 법적 문서</a> · <a href="data-deletion-en.html">English</a></div>
+  <h1>Todit 데이터 삭제 요청 안내</h1>
+  <p class="meta">앱 이름: Todit(투딧) · 패키지명: com.todit.todaydoit · 개발자: TerryWi · 시행일자 2026년 9월 25일</p>
+
+  <p>Todit(투딧)은 할 일을 기록하고 날짜·반복·알림으로 관리하는 개인 할일 관리 앱입니다. 할일 기록은 원칙적으로 이용자의 기기 안에만 저장되며, 공급자는 이용자의 할일 데이터를 보관하는 별도의 자체 서버를 운영하지 않습니다. 이용자는 아래 방법으로 자신의 데이터를 직접 삭제하거나 삭제를 요청할 수 있습니다.</p>
+
+  <h2>1. 앱 안에서 직접 삭제 (즉시 처리)</h2>
+  <ul>
+    <li><b>할 일 삭제</b> — 목록에서 항목을 왼쪽으로 밀어 "삭제": 삭제한 항목은 되살릴 수 있도록 30일간 "최근 삭제 항목"에 보관된 뒤 기기에서 영구 삭제됩니다.</li>
+    <li><b>Drive 백업 삭제</b> — 설정 &gt; 계정 &gt; "로그아웃" &gt; "Drive에 있는 백업도 삭제": 이용자 본인의 Google Drive 앱 전용 폴더(appDataFolder)에 저장된 백업 파일이 Google Drive API를 통해 즉시 삭제됩니다.</li>
+    <li><b>로그아웃</b> — 설정 &gt; 계정: Google 로그인 연결이 즉시 해제됩니다.</li>
+    <li><b>앱 삭제</b>: 앱을 제거하면 "최근 삭제 항목"에 남아 있는 것까지 포함해 기기에 저장된 모든 로컬 기록이 함께 삭제됩니다.</li>
+  </ul>
+
+  <h2>2. 이메일로 삭제 요청</h2>
+  <p>공급자는 이용자의 할일 데이터를 보관하는 서버를 운영하지 않으므로, 삭제할 데이터는 전부 이용자의 기기와 이용자 본인의 Google Drive 안에 있습니다. 그럼에도 삭제 절차에 관해 도움이 필요하거나, 계정 연동과 관련한 삭제를 확인받고 싶은 경우 고객센터 이메일 <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a> 로 요청하실 수 있으며, 공급자는 지체 없이(영업일 기준 7일 이내) 처리하고 결과를 회신합니다. 요청 시 제목에 "데이터 삭제 요청"을 적어 주세요.</p>
+
+  <h2>3. 삭제되는 데이터와 보관되는 데이터</h2>
+  <table>
+    <tr><th>데이터 유형</th><th>저장 위치</th><th>삭제 방법 / 시점</th><th>삭제 후 추가 보관</th></tr>
+    <tr>
+      <td>할일 기록(할 일·하위 항목, 메모, 날짜·시간, 반복·알림 설정, 완료 기록, 앱 설정)</td>
+      <td>이용자 기기 (로컬 SQLite)</td>
+      <td>앱 삭제 시 즉시</td>
+      <td>없음 (서버 미보관)</td>
+    </tr>
+    <tr>
+      <td>삭제한 할 일</td>
+      <td>이용자 기기 ("최근 삭제 항목")</td>
+      <td>삭제 후 30일이 지나면 영구 삭제 (앱 삭제 시 즉시)</td>
+      <td>최대 30일</td>
+    </tr>
+    <tr>
+      <td>Google Drive 백업 파일(로컬 기록의 JSON 사본)</td>
+      <td>이용자 본인의 Google Drive appDataFolder</td>
+      <td>로그아웃 시 "Drive에 있는 백업도 삭제" 선택하면 즉시</td>
+      <td>없음 (최근 3건까지만 유지)</td>
+    </tr>
+    <tr>
+      <td>Google 로그인 정보(이메일, 계정 식별자)</td>
+      <td>Google 인증(OAuth)</td>
+      <td>"로그아웃" 시 즉시 연결 해제</td>
+      <td>없음</td>
+    </tr>
+    <tr>
+      <td>광고 식별자·기기 정보·진단 데이터</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>기기 설정 &gt; 개인정보 보호 &gt; 광고에서 광고 ID 재설정 / 맞춤설정 해제</td>
+      <td>Google의 개인정보처리방침 및 보관 기간에 따름</td>
+    </tr>
+  </table>
+
+  <p>기기를 바꾸기 전에 기록을 남겨 두려면 설정 &gt; 데이터 &gt; "백업 및 내보내기"에서 JSON 파일로 내보낼 수 있습니다. 자세한 개인정보 처리 내용은 <a href="privacy.html">Todit 개인정보 처리방침</a>을 참고하시기 바랍니다.</p>
+
+  <p class="contact">문의: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>
