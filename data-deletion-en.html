@@ -10,15 +10,16 @@
 <div class="page">
   <div class="nav"><a href="index.html">← Todit legal documents</a> · <a href="data-deletion.html">한국어</a></div>
   <h1>Todit Data Deletion</h1>
-  <p class="meta">App: Todit · Package: com.todit.todaydoit · Developer: TerryWi · Effective 25 September 2026</p>
+  <p class="meta">App: Todit · Package: com.todit.todaydoit · Developer: TerryWi · Effective 4 October 2026</p>
 
   <p>Todit is a personal to-do app for capturing tasks and managing them by date, repetition and reminders. As a rule, to-do records are stored only on the user’s device, and the Provider does not operate its own separate server that stores users’ to-do data. Users can delete their own data, or request deletion, in the following ways.</p>
 
   <h2>1. Delete in the app (processed immediately)</h2>
   <ul>
     <li><b>Delete a task</b> — swipe the row left and choose “Delete”: the item is kept in “Recently deleted” for 30 days so it can be restored, then permanently deleted from the device.</li>
-    <li><b>Delete Drive backups</b> — Settings &gt; Account &gt; “Sign out” &gt; “Also delete backups in Drive”: backup files stored in the app-specific folder (appDataFolder) of the user’s own Google Drive are deleted immediately via the Google Drive API.</li>
-    <li><b>Sign out</b> — Settings &gt; Account: the Google sign-in is disconnected immediately.</li>
+    <li><b>Delete Drive backups</b> — Settings &gt; My info &gt; Connected account &gt; “Disconnect account &amp; delete backups”: the backup stored in the app-specific folder (appDataFolder) of the user’s own Google Drive is deleted immediately via the Google Drive API, the Drive permission granted to the app is revoked, and the Google sign-in is disconnected.</li>
+    <li><b>Sign out</b> — Settings &gt; My info &gt; “Sign out”: the Google sign-in is disconnected immediately. The Drive backup stays, so it can be restored after signing in again.</li>
+    <li><b>Delete records on this device</b> — Settings &gt; My info &gt; “Reset data”: all tasks, subtasks and history stored on this device are deleted immediately. The Drive backup stays.</li>
     <li><b>Uninstall the app</b>: all local records stored on the device, including anything still in “Recently deleted”, are deleted along with it.</li>
   </ul>
 
@@ -31,7 +32,7 @@
     <tr>
       <td>To-do records (tasks and subtasks, notes, dates and times, repetition and reminder settings, completion history, app settings)</td>
       <td>User’s device (local SQLite)</td>
-      <td>Immediately on uninstalling the app</td>
+      <td>Immediately on “Reset data” or on uninstalling the app</td>
       <td>None (not held on any server)</td>
     </tr>
     <tr>
@@ -43,14 +44,20 @@
     <tr>
       <td>Google Drive backup files (JSON copy of local records)</td>
       <td>The user’s own Google Drive appDataFolder</td>
-      <td>Immediately, if “Also delete backups in Drive” is selected when signing out</td>
-      <td>None (only the 3 most recent backups are kept)</td>
+      <td>Immediately on “Disconnect account &amp; delete backups”</td>
+      <td>None (only the most recent backup is kept; backups are made only when the user taps “Back up now”, never automatically)</td>
     </tr>
     <tr>
       <td>Google sign-in information (email, account identifier)</td>
       <td>Google authentication (OAuth)</td>
-      <td>Disconnected immediately on “Sign out”</td>
+      <td>Disconnected immediately on “Sign out” or “Disconnect account &amp; delete backups”</td>
       <td>None</td>
+    </tr>
+    <tr>
+      <td>Audio spoken during voice input</td>
+      <td>Not stored by Todit (processed by the device’s speech recognition service)</td>
+      <td>—</td>
+      <td>Subject to the speech recognition provider’s (usually Google’s) policies</td>
     </tr>
     <tr>
       <td>Advertising identifier, device information, diagnostic data</td>
@@ -60,7 +67,7 @@
     </tr>
   </table>
 
-  <p>To keep your records before changing devices, you can export them as a JSON file under Settings &gt; Data &gt; “Backup &amp; export”. For details of how personal information is processed, please see the <a href="privacy-en.html">Todit Privacy Policy</a>.</p>
+  <p>To keep your records before changing devices, you can export them as a JSON file under Settings &gt; My info &gt; “Export to file”. For details of how personal information is processed, please see the <a href="privacy-en.html">Todit Privacy Policy</a>.</p>
 
   <p class="contact">Contact: wwwtaekyu@gmail.com</p>
 </div>
