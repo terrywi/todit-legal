@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xóa dữ liệu Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <a href="data-deletion-zh-TW.html">繁體中文</a> · <a href="data-deletion-es.html">Español</a> · <a href="data-deletion-pt-BR.html">Português (Brasil)</a> · <a href="data-deletion-fr.html">Français</a> · <a href="data-deletion-de.html">Deutsch</a> · <a href="data-deletion-ru.html">Русский</a> · <a href="data-deletion-tr.html">Türkçe</a> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <b>Tiếng Việt</b></span></div>
+  <h1>Xóa dữ liệu Todit</h1>
+  <p class="meta">Ứng dụng: Todit · Gói: com.todit.todaydoit · Nhà phát triển: TerryWi · Có hiệu lực từ ngày 4/10/2026</p>
+  <p class="note">Tài liệu này là bản dịch từ bản gốc tiếng Hàn. Nếu bản dịch khác với bản gốc, bản gốc tiếng Hàn được ưu tiên áp dụng.</p>
+
+  <p>Todit là ứng dụng việc cần làm cá nhân để ghi lại việc phải làm và sắp xếp theo ngày, lặp lại và lời nhắc. Theo nguyên tắc, bản ghi việc cần làm chỉ lưu trên thiết bị của người dùng, và Nhà cung cấp không vận hành máy chủ riêng lưu dữ liệu việc cần làm của người dùng. Người dùng có thể tự xóa dữ liệu của mình, hoặc yêu cầu xóa, theo các cách sau.</p>
+
+  <h2>1. Xóa trong ứng dụng (ngay lập tức)</h2>
+  <ul>
+    <li><b>Xóa một việc</b>: vuốt dòng sang trái rồi chọn “Xóa”. Việc được giữ 30 ngày trong “Đã xóa gần đây” để có thể khôi phục, sau đó bị xóa vĩnh viễn khỏi thiết bị.</li>
+    <li><b>Xóa bản sao lưu Drive</b>: Cài đặt &gt; Thông tin của tôi &gt; Tài khoản đã kết nối &gt; “Ngắt kết nối tài khoản và xóa bản sao lưu”. Bản sao lưu trong thư mục riêng của ứng dụng (appDataFolder) trên Google Drive của người dùng bị xóa ngay qua Google Drive API, quyền Drive đã cấp cho ứng dụng bị thu hồi và đăng nhập Google bị ngắt.</li>
+    <li><b>Đăng xuất</b>: Cài đặt &gt; Thông tin của tôi &gt; “Đăng xuất”. Đăng nhập Google bị ngắt ngay. Bản sao lưu Drive vẫn còn và có thể khôi phục sau khi đăng nhập lại.</li>
+    <li><b>Xóa bản ghi trên thiết bị này</b>: Cài đặt &gt; Thông tin của tôi &gt; “Đặt lại dữ liệu”. Mọi việc, việc con và lịch sử trên thiết bị này bị xóa ngay. Bản sao lưu Drive vẫn còn.</li>
+    <li><b>Gỡ ứng dụng</b>: mọi bản ghi cục bộ trên thiết bị, kể cả những gì còn trong “Đã xóa gần đây”, bị xóa theo.</li>
+  </ul>
+
+  <h2>2. Yêu cầu xóa qua email</h2>
+  <p>Vì Nhà cung cấp không vận hành máy chủ nào chứa dữ liệu việc cần làm của người dùng, mọi thứ cần xóa đều nằm trên thiết bị của người dùng và trong Google Drive của chính họ. Tuy vậy, nếu bạn cần trợ giúp với các bước hoặc muốn được xác nhận việc xóa liên quan đến liên kết tài khoản, hãy gửi email tới <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a>. Nhà cung cấp sẽ xử lý ngay (trong vòng 7 ngày làm việc) và trả lời kết quả. Vui lòng ghi “Yêu cầu xóa dữ liệu” ở tiêu đề.</p>
+
+  <h2>3. Dữ liệu bị xóa và dữ liệu được giữ</h2>
+  <table>
+    <tr><th>Loại dữ liệu</th><th>Nơi lưu</th><th>Cách / thời điểm xóa</th><th>Lưu giữ sau khi xóa</th></tr>
+    <tr>
+      <td>Bản ghi việc cần làm (việc và việc con, ghi chú, ngày giờ, lặp lại và lời nhắc, lịch sử việc đã xong, cài đặt ứng dụng)</td>
+      <td>Thiết bị của người dùng (SQLite cục bộ)</td>
+      <td>Ngay khi chọn “Đặt lại dữ liệu” hoặc gỡ ứng dụng</td>
+      <td>Không (không lưu trên máy chủ)</td>
+    </tr>
+    <tr>
+      <td>Việc đã xóa</td>
+      <td>Thiết bị của người dùng (“Đã xóa gần đây”)</td>
+      <td>Bị xóa vĩnh viễn sau 30 ngày (ngay lập tức nếu gỡ ứng dụng)</td>
+      <td>Tối đa 30 ngày</td>
+    </tr>
+    <tr>
+      <td>Bản sao lưu Google Drive (bản sao JSON của bản ghi cục bộ)</td>
+      <td>appDataFolder trong Google Drive của người dùng</td>
+      <td>Ngay khi chọn “Ngắt kết nối tài khoản và xóa bản sao lưu”</td>
+      <td>Không (chỉ giữ bản sao lưu mới nhất; chỉ được tạo khi người dùng nhấn “Sao lưu ngay”, không bao giờ tự động)</td>
+    </tr>
+    <tr>
+      <td>Thông tin đăng nhập Google (email, mã định danh tài khoản)</td>
+      <td>Xác thực Google (OAuth)</td>
+      <td>Ngắt ngay khi chọn “Đăng xuất” hoặc “Ngắt kết nối tài khoản và xóa bản sao lưu”</td>
+      <td>Không</td>
+    </tr>
+    <tr>
+      <td>Âm thanh nói trong lúc nhập bằng giọng nói</td>
+      <td>Todit không lưu (do dịch vụ nhận dạng giọng nói của thiết bị xử lý)</td>
+      <td>—</td>
+      <td>Theo chính sách của nhà cung cấp nhận dạng giọng nói (thường là Google)</td>
+    </tr>
+    <tr>
+      <td>Mã nhận dạng quảng cáo, thông tin thiết bị, dữ liệu chẩn đoán</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Đặt lại mã quảng cáo hoặc tắt cá nhân hóa trong Cài đặt &gt; Quyền riêng tư &gt; Quảng cáo của thiết bị</td>
+      <td>Theo chính sách quyền riêng tư và thời hạn lưu giữ của Google</td>
+    </tr>
+  </table>
+
+  <p>Để giữ lại bản ghi trước khi đổi thiết bị, bạn có thể xuất chúng thành tệp JSON tại Cài đặt &gt; Thông tin của tôi &gt; “Xuất ra tệp”. Chi tiết về cách xử lý dữ liệu cá nhân có trong <a href="privacy-vi.html">Chính sách quyền riêng tư của Todit</a>.</p>
+  <p>Bản gốc của thông báo này bằng tiếng Hàn; nếu bản dịch khác với bản gốc, bản gốc tiếng Hàn được ưu tiên áp dụng.</p>
+
+  <p class="contact">Liên hệ: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

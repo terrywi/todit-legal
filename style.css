@@ -38,6 +38,18 @@ body {
 .nav { font-size: 14px; margin-bottom: 24px; }
 .nav a { color: var(--muted); text-decoration: none; }
 .nav a:hover { color: var(--accent); }
+.nav .langs { display: block; margin-top: 6px; color: var(--muted); line-height: 1.9; }
+.nav .langs b { color: var(--fg); font-weight: 600; }
+
+.note {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 14px;
+  margin: -16px 0 32px;
+}
 
 h1 { font-size: 26px; margin: 0 0 8px; }
 

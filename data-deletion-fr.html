@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suppression des données Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <a href="data-deletion-zh-TW.html">繁體中文</a> · <a href="data-deletion-es.html">Español</a> · <a href="data-deletion-pt-BR.html">Português (Brasil)</a> · <b>Français</b> · <a href="data-deletion-de.html">Deutsch</a> · <a href="data-deletion-ru.html">Русский</a> · <a href="data-deletion-tr.html">Türkçe</a> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <a href="data-deletion-vi.html">Tiếng Việt</a></span></div>
+  <h1>Suppression des données Todit</h1>
+  <p class="meta">App : Todit · Package : com.todit.todaydoit · Développeur : TerryWi · En vigueur à partir du 4 octobre 2026</p>
+  <p class="note">Ce document est une traduction de l’original coréen. En cas de divergence, l’original coréen prévaut.</p>
+
+  <p>Todit est une app personnelle de tâches pour noter ce qu’il y a à faire et l’organiser par date, répétition et rappels. En règle générale, les enregistrements de tâches sont stockés uniquement sur l’appareil de l’utilisateur, et le Fournisseur n’exploite pas de serveur propre stockant les données de tâches des utilisateurs. L’utilisateur peut supprimer lui-même ses données, ou en demander la suppression, de la manière suivante.</p>
+
+  <h2>1. Supprimer dans l’app (immédiat)</h2>
+  <ul>
+    <li><b>Supprimer une tâche</b> : balayez la ligne vers la gauche et choisissez « Supprimer ». La tâche reste 30 jours dans « Supprimées récemment » pour pouvoir être restaurée, puis elle est définitivement supprimée de l’appareil.</li>
+    <li><b>Supprimer la sauvegarde Drive</b> : Paramètres &gt; Mes infos &gt; Compte connecté &gt; « Déconnecter le compte et supprimer les sauvegardes ». La sauvegarde enregistrée dans le dossier réservé à l’app (appDataFolder) du Google Drive de l’utilisateur est supprimée immédiatement via l’API Google Drive, l’autorisation Drive accordée à l’app est révoquée et la connexion Google est dissociée.</li>
+    <li><b>Se déconnecter</b> : Paramètres &gt; Mes infos &gt; « Se déconnecter ». La connexion Google est dissociée immédiatement. La sauvegarde Drive est conservée et peut être restaurée après une nouvelle connexion.</li>
+    <li><b>Supprimer les enregistrements de cet appareil</b> : Paramètres &gt; Mes infos &gt; « Réinitialiser les données ». Toutes les tâches, sous-tâches et l’historique de cet appareil sont supprimés immédiatement. La sauvegarde Drive est conservée.</li>
+    <li><b>Désinstaller l’app</b> : tous les enregistrements locaux de l’appareil, y compris ce qui se trouve encore dans « Supprimées récemment », sont supprimés avec elle.</li>
+  </ul>
+
+  <h2>2. Demander la suppression par e-mail</h2>
+  <p>Comme le Fournisseur n’exploite aucun serveur contenant des données de tâches des utilisateurs, tout ce qui doit être supprimé se trouve sur l’appareil de l’utilisateur et dans son propre Google Drive. Si vous souhaitez tout de même de l’aide pour les étapes, ou une confirmation concernant la suppression liée à l’association du compte, écrivez à <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a>. Le Fournisseur agira sans délai (sous 7 jours ouvrés) et vous répondra avec le résultat. Indiquez « Demande de suppression des données » en objet.</p>
+
+  <h2>3. Ce qui est supprimé et ce qui est conservé</h2>
+  <table>
+    <tr><th>Type de données</th><th>Lieu de stockage</th><th>Comment / quand elles sont supprimées</th><th>Conservation après suppression</th></tr>
+    <tr>
+      <td>Enregistrements de tâches (tâches et sous-tâches, notes, dates et heures, répétitions et rappels, historique des tâches terminées, réglages de l’app)</td>
+      <td>Appareil de l’utilisateur (SQLite local)</td>
+      <td>Immédiatement avec « Réinitialiser les données » ou à la désinstallation de l’app</td>
+      <td>Aucune (pas de stockage sur serveur)</td>
+    </tr>
+    <tr>
+      <td>Tâches supprimées</td>
+      <td>Appareil de l’utilisateur (« Supprimées récemment »)</td>
+      <td>Supprimées définitivement 30 jours après (immédiatement si l’app est désinstallée)</td>
+      <td>Jusqu’à 30 jours</td>
+    </tr>
+    <tr>
+      <td>Sauvegarde Google Drive (copie JSON des enregistrements locaux)</td>
+      <td>appDataFolder du Google Drive de l’utilisateur</td>
+      <td>Immédiatement avec « Déconnecter le compte et supprimer les sauvegardes »</td>
+      <td>Aucune (seule la sauvegarde la plus récente est conservée ; elle n’est créée que lorsque l’utilisateur touche « Sauvegarder maintenant », jamais automatiquement)</td>
+    </tr>
+    <tr>
+      <td>Informations de connexion Google (e-mail, identifiant du compte)</td>
+      <td>Authentification Google (OAuth)</td>
+      <td>Dissociées immédiatement avec « Se déconnecter » ou « Déconnecter le compte et supprimer les sauvegardes »</td>
+      <td>Aucune</td>
+    </tr>
+    <tr>
+      <td>Audio prononcé pendant la saisie vocale</td>
+      <td>Non stocké par Todit (traité par le service de reconnaissance vocale de l’appareil)</td>
+      <td>—</td>
+      <td>Selon les règles du fournisseur de reconnaissance vocale (généralement Google)</td>
+    </tr>
+    <tr>
+      <td>Identifiant publicitaire, informations sur l’appareil, données de diagnostic</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Réinitialisez l’identifiant publicitaire ou désactivez la personnalisation dans Paramètres &gt; Confidentialité &gt; Annonces de l’appareil</td>
+      <td>Selon les règles de confidentialité et les durées de conservation de Google</td>
+    </tr>
+  </table>
+
+  <p>Pour garder vos enregistrements avant de changer d’appareil, vous pouvez les exporter au format JSON dans Paramètres &gt; Mes infos &gt; « Exporter dans un fichier ». Pour en savoir plus sur le traitement des données personnelles, consultez la <a href="privacy-fr.html">Politique de confidentialité de Todit</a>.</p>
+  <p>Le texte original de cet avis est en coréen ; en cas de divergence avec une traduction, l’original coréen prévaut.</p>
+
+  <p class="contact">Contact : wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

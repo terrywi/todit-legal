@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todit 資料刪除說明</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <b>繁體中文</b> · <a href="data-deletion-es.html">Español</a> · <a href="data-deletion-pt-BR.html">Português (Brasil)</a> · <a href="data-deletion-fr.html">Français</a> · <a href="data-deletion-de.html">Deutsch</a> · <a href="data-deletion-ru.html">Русский</a> · <a href="data-deletion-tr.html">Türkçe</a> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <a href="data-deletion-vi.html">Tiếng Việt</a></span></div>
+  <h1>Todit 資料刪除說明</h1>
+  <p class="meta">App 名稱:Todit · 套件名稱:com.todit.todaydoit · 開發者:TerryWi · 施行日期 2026年10月4日</p>
+  <p class="note">本文件為韓文原文的翻譯。翻譯與原文內容不一致時，以韓文原文為準。</p>
+
+  <p>Todit 是一款記錄待辦事項，並以日期、重複與提醒加以管理的個人待辦清單 App。待辦紀錄原則上只儲存在使用者的裝置中，提供者並未營運保存使用者待辦資料的自有伺服器。使用者可透過下列方式自行刪除資料或要求刪除。</p>
+
+  <h2>1. 在 App 中直接刪除(立即處理)</h2>
+  <ul>
+    <li><b>刪除待辦事項</b> — 在清單中將項目向左滑動並選擇「刪除」:刪除的項目會在「最近刪除」中保存30天以便復原，之後從裝置中永久刪除。</li>
+    <li><b>刪除雲端硬碟備份</b> — 設定 &gt; 我的資訊 &gt; 已連結帳戶 &gt;「中斷帳戶連結並刪除備份」:儲存在使用者本人 Google 雲端硬碟 App 專用資料夾(appDataFolder)中的備份檔案，將透過 Google Drive API 立即刪除，同時撤銷授予 App 的雲端硬碟權限並中斷 Google 登入連結。</li>
+    <li><b>登出</b> — 設定 &gt; 我的資訊 &gt;「登出」:立即中斷 Google 登入連結。雲端硬碟備份會保留，重新登入後即可還原。</li>
+    <li><b>刪除此裝置的紀錄</b> — 設定 &gt; 我的資訊 &gt;「重設資料」:立即刪除此裝置上的所有待辦事項、子項目與紀錄。雲端硬碟備份會保留。</li>
+    <li><b>刪除 App</b>:解除安裝 App 時，裝置中的所有本機紀錄(包括仍在「最近刪除」中的項目)會一併刪除。</li>
+  </ul>
+
+  <h2>2. 以電子郵件要求刪除</h2>
+  <p>提供者並未營運保存使用者待辦資料的伺服器，因此所有待刪除的資料都位於使用者的裝置與使用者本人的 Google 雲端硬碟中。若仍需要刪除步驟的協助，或希望確認與帳戶連結相關的刪除，可寄信至客服信箱 <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a> 提出要求，提供者將立即(7個工作天內)處理並回覆結果。請在主旨中註明「資料刪除要求」。</p>
+
+  <h2>3. 會刪除與會保存的資料</h2>
+  <table>
+    <tr><th>資料類型</th><th>儲存位置</th><th>刪除方式 / 時間</th><th>刪除後的額外保存</th></tr>
+    <tr>
+      <td>待辦紀錄(待辦事項・子項目、備註、日期・時間、重複・提醒設定、完成紀錄、App 設定)</td>
+      <td>使用者裝置(本機 SQLite)</td>
+      <td>執行「重設資料」或刪除 App 時立即刪除</td>
+      <td>無(不保存於伺服器)</td>
+    </tr>
+    <tr>
+      <td>已刪除的待辦事項</td>
+      <td>使用者裝置(「最近刪除」)</td>
+      <td>刪除30天後永久刪除(刪除 App 時立即)</td>
+      <td>最多30天</td>
+    </tr>
+    <tr>
+      <td>Google 雲端硬碟備份檔案(本機紀錄的 JSON 副本)</td>
+      <td>使用者本人的 Google 雲端硬碟 appDataFolder</td>
+      <td>執行「中斷帳戶連結並刪除備份」時立即刪除</td>
+      <td>無(只保存最近一次備份;僅在使用者按下「立即備份」時建立，不會自動備份)</td>
+    </tr>
+    <tr>
+      <td>Google 登入資訊(電子郵件、帳戶識別碼)</td>
+      <td>Google 驗證(OAuth)</td>
+      <td>執行「登出」或「中斷帳戶連結並刪除備份」時立即中斷連結</td>
+      <td>無</td>
+    </tr>
+    <tr>
+      <td>語音輸入期間說出的語音</td>
+      <td>Todit 不儲存(由裝置的語音辨識服務處理)</td>
+      <td>—</td>
+      <td>依語音辨識服務提供者(通常為 Google)的政策</td>
+    </tr>
+    <tr>
+      <td>廣告識別碼・裝置資訊・診斷資料</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>在裝置的 設定 &gt; 隱私權 &gt; 廣告 中重設廣告 ID / 關閉個人化</td>
+      <td>依 Google 的隱私權政策與保存期間</td>
+    </tr>
+  </table>
+
+  <p>如想在更換裝置前保留紀錄，可在 設定 &gt; 我的資訊 &gt;「匯出至檔案」匯出為 JSON 檔案。個人資料處理的詳細內容，請參閱 <a href="privacy-zh-TW.html">Todit 隱私權政策</a>。</p>
+  <p>本說明以韓文為原文，翻譯與原文內容不一致時，以韓文原文為準。</p>
+
+  <p class="contact">聯絡:wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

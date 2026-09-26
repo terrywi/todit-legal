@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad de Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="privacy.html">한국어</a> · <a href="privacy-en.html">English</a> · <a href="privacy-ja.html">日本語</a> · <a href="privacy-zh-TW.html">繁體中文</a> · <b>Español</b> · <a href="privacy-pt-BR.html">Português (Brasil)</a> · <a href="privacy-fr.html">Français</a> · <a href="privacy-de.html">Deutsch</a> · <a href="privacy-ru.html">Русский</a> · <a href="privacy-tr.html">Türkçe</a> · <a href="privacy-id.html">Bahasa Indonesia</a> · <a href="privacy-vi.html">Tiếng Việt</a></span></div>
+  <h1>Política de privacidad de Todit</h1>
+  <p class="meta">Publicada el 27 de septiembre de 2026 · En vigor desde el 4 de octubre de 2026</p>
+  <p class="note">Este documento es una traducción del original en coreano. Si la traducción difiere del original, prevalece el original en coreano.</p>
+
+  <p>TerryWi (el «Proveedor») establece y publica la presente Política de privacidad, conforme al artículo 30 de la Ley de Protección de Datos Personales de Corea, para proteger los datos personales de los usuarios y atender con rapidez y eficacia las reclamaciones relacionadas. Todit es una app personal de tareas para anotar lo que hay que hacer y gestionarlo por fecha, repetición y recordatorios. Como regla general, todos los registros se guardan únicamente en el dispositivo del usuario.</p>
+
+  <h2>Artículo 1 (Finalidades de la recogida y el uso)</h2>
+  <p>El Proveedor trata la mínima cantidad de datos personales para las finalidades siguientes. Los datos tratados no se usan para ninguna otra finalidad y, si la finalidad cambia, el Proveedor adoptará las medidas necesarias, como obtener un consentimiento independiente conforme al artículo 18 de la misma ley.</p>
+  <ul>
+    <li><b>Funciones principales</b>: todas las funciones de gestión de tareas de Todit (el «Servicio») —tareas y subtareas, fechas y repeticiones, vista de calendario, historial y estadísticas de tareas completadas, búsqueda— se guardan solo en el dispositivo del usuario, y el Proveedor no recoge ni conserva datos personales para esta finalidad.</li>
+    <li><b>Envío de notificaciones</b>: los recordatorios y el resumen matutino configurados por el usuario se programan y se muestran en el propio dispositivo. Todo ocurre dentro del dispositivo y no se envía información al exterior.</li>
+    <li><b>Identificación del usuario y copia de seguridad/restauración</b>: identificación del usuario mediante el inicio de sesión con Google y copia de seguridad y restauración de los registros a través del Google Drive del propio usuario.</li>
+    <li><b>Entrada por voz (opcional)</b>: convertir en texto lo que el usuario dice mientras mantiene pulsado el botón del micrófono e introducirlo en el campo de la tarea.</li>
+    <li><b>Publicidad</b>: obtener fondos para operar el Servicio mediante anuncios de banner de Google AdMob.</li>
+  </ul>
+
+  <h2>Artículo 2 (Datos recogidos y forma de recogida)</h2>
+  <p><b>Datos recogidos</b></p>
+  <ul>
+    <li><b>[Al iniciar sesión, opcional] Información de la cuenta de Google</b>: dirección de correo electrónico e identificador de la cuenta de Google, obtenidos mediante el inicio de sesión con Google (OAuth). Todas las funciones se pueden usar sin limitación sin iniciar sesión; el inicio de sesión solo es necesario para usar la copia de seguridad y restauración con Google Drive.</li>
+    <li><b>[Creados por el usuario al usar la app, guardados en el dispositivo] Registros de tareas</b>: títulos de tareas, subtareas, notas, fechas y horas previstas, repeticiones, recordatorios, ámbito personal/trabajo, historial de completadas, orden y ajustes de la app como tema y idioma. Esta información se guarda solo en el almacenamiento del dispositivo (SQLite) y no se envía a servidores del Proveedor (el Proveedor no tiene servidor propio).</li>
+    <li><b>[Al usar la copia de seguridad] Datos de copia en Google Drive</b>: cada vez que el usuario pulsa «Hacer copia ahora», todos los registros locales anteriores se guardan en formato JSON en el espacio exclusivo de la app (appDataFolder) dentro del Google Drive del propio usuario. La app nunca hace copias automáticas. Este espacio es privado —ni siquiera el usuario puede abrirlo desde la app de Google Drive— y ningún tercero, incluido el Proveedor, puede acceder a estos datos.</li>
+    <li><b>[Al usar la entrada por voz, opcional] Voz</b>: la app solo escucha mientras el usuario mantiene pulsado el botón del micrófono. El servicio de reconocimiento de voz del dispositivo (p. ej., Google) convierte la voz en texto y, para ello, puede enviar el audio a sus propios servidores. Todit no guarda ni envía el audio; solo introduce el texto resultante en el campo.</li>
+    <li><b>[Recogidos automáticamente por el SDK de publicidad] Identificador de publicidad e información del dispositivo</b>: el Servicio muestra anuncios de banner mediante Google AdMob y, en ese proceso, Google puede recoger el identificador de publicidad (ID de publicidad), información del dispositivo y datos de diagnóstico sobre impresiones y clics. El Proveedor no recoge ni conserva directamente esta información, que se trata según la política de privacidad de Google.</li>
+  </ul>
+  <p><b>Forma de recogida</b>: introducción directa por el usuario al usar el Servicio (incluida la entrada por voz), vinculación de la cuenta de Google (OAuth) y recogida automática por el SDK de publicidad. El Servicio no accede a otros datos personales del dispositivo, como contactos, mensajes, registro de llamadas, ubicación o fotos.</p>
+
+  <h2>Artículo 3 (Tratamiento y plazo de conservación)</h2>
+  <ul>
+    <li><b>Información de inicio de sesión de Google</b>: se desvincula y elimina de inmediato cuando el usuario usa «Cerrar sesión» o «Desconectar cuenta y eliminar copias».</li>
+    <li><b>Registros guardados en el dispositivo</b>: se eliminan del dispositivo en cuanto el usuario desinstala la app. Como no se conservan en servidores del Proveedor, el usuario puede eliminarlos por completo por sí mismo.</li>
+    <li><b>Tareas eliminadas</b>: para poder recuperar lo borrado por error, se conservan en «Eliminadas recientemente» <b>durante 30 días</b> y después se eliminan definitivamente del dispositivo. El usuario puede borrarlas antes con «Restablecer datos» o desinstalando la app.</li>
+    <li><b>Datos de copia en Google Drive</b>: en el Drive del usuario se conserva <b>solo la copia más reciente</b>; cada nueva copia sustituye a la anterior. Se elimina de inmediato con «Desconectar cuenta y eliminar copias»; si el usuario solo usa «Cerrar sesión», la copia se mantiene y puede restaurarse al volver a iniciar sesión.</li>
+    <li><b>Voz</b>: Todit no la conserva. El audio tratado por el servicio de reconocimiento de voz del dispositivo se rige por las políticas de ese proveedor.</li>
+    <li><b>Identificador de publicidad y otros datos de diagnóstico</b>: se rigen por las políticas y plazos de conservación de Google.</li>
+  </ul>
+
+  <h2>Artículo 4 (Procedimiento y método de destrucción)</h2>
+  <ul>
+    <li><b>Procedimiento</b>: cuando el usuario usa «Cerrar sesión», «Desconectar cuenta y eliminar copias» o «Restablecer datos», o desinstala la app, se procesa de inmediato sin ningún paso de aprobación. La eliminación de una tarea concreta se completa automáticamente al terminar el periodo de recuperación de 30 días.</li>
+    <li><b>Método</b>: los datos locales se eliminan del almacenamiento del dispositivo, y los archivos de copia de Google Drive se eliminan mediante la API de Google Drive de forma que no puedan recuperarse.</li>
+  </ul>
+
+  <h2>Artículo 5 (Derechos del usuario y forma de ejercerlos)</h2>
+  <p>El usuario puede ejercer en cualquier momento los siguientes derechos directamente desde los ajustes de la app.</p>
+  <ul>
+    <li><b>Exportar registros</b> (Ajustes &gt; Mi información &gt; Exportar a un archivo): descargar todos los registros del dispositivo como archivo JSON para guardarlos o trasladarlos</li>
+    <li><b>Eliminadas recientemente</b> (Repaso &gt; Archivo &gt; Eliminadas recientemente): restaurar en un plazo de 30 días; después se eliminan definitivamente</li>
+    <li><b>Eliminar la copia de Drive</b> (Ajustes &gt; Mi información &gt; Cuenta conectada &gt; «Desconectar cuenta y eliminar copias»): elimina la copia guardada en Google Drive, revoca el permiso de Drive concedido a la app y desvincula el inicio de sesión de Google</li>
+    <li><b>Cerrar sesión</b> (Ajustes &gt; Mi información &gt; Cerrar sesión): desvincula el inicio de sesión de Google (la copia de Drive y los registros locales del dispositivo se mantienen)</li>
+    <li><b>Restablecer datos</b> (Ajustes &gt; Mi información &gt; Restablecer datos): elimina todas las tareas, subtareas e historial de este dispositivo (la copia de Drive se mantiene)</li>
+    <li><b>Retirar el permiso de notificaciones</b>: en cualquier momento desde los ajustes del sistema (solo se dejan de mostrar notificaciones; el resto de funciones sigue funcionando)</li>
+    <li><b>Retirar el permiso del micrófono</b>: en cualquier momento desde los ajustes del sistema (solo se deja de usar la entrada por voz; se puede seguir escribiendo)</li>
+    <li><b>Desinstalar la app</b>: se eliminan con ella todos los registros locales del dispositivo</li>
+  </ul>
+  <p>Cualquier otra consulta sobre datos personales puede enviarse al correo de soporte (wwwtaekyu@gmail.com), y el Proveedor actuará sin demora. El Servicio no está dirigido a menores de 14 años y no recoge a sabiendas datos personales de menores.</p>
+
+  <h2>Artículo 6 (Medidas de seguridad)</h2>
+  <ul>
+    <li><b>Medidas técnicas</b>: los registros de tareas se guardan solo en el almacenamiento local del dispositivo (SQLite) y no se transmiten al exterior. La autenticación de Google usa el flujo estándar OAuth de Google y la comunicación con Google Drive se cifra con TLS. Las copias se guardan en el espacio privado exclusivo de la app (appDataFolder) incluso dentro del Drive del usuario, lo que impide el acceso de terceros.</li>
+    <li><b>Medidas administrativas</b>: se reduce al mínimo el número de personas que intervienen en el tratamiento de datos personales.</li>
+  </ul>
+
+  <h2>Artículo 7 (Encargo del tratamiento y cesión a terceros)</h2>
+  <p>El Proveedor no tiene servidor propio que almacene los datos de tareas de los usuarios. Utiliza los servicios siguientes para cada finalidad, y la información tratada en cada servicio se rige por la política de privacidad de ese proveedor.</p>
+  <table>
+    <tr><th>Finalidad</th><th>Servicio utilizado</th><th>Información tratada</th></tr>
+    <tr><td>Inicio de sesión</td><td>Google Sign-In (Google LLC)</td><td>Correo electrónico, identificador de la cuenta</td></tr>
+    <tr><td>Copia de seguridad y restauración</td><td>Google Drive API — appDataFolder (Google LLC)</td><td>Todos los registros locales creados por el usuario</td></tr>
+    <tr><td>Publicidad</td><td>Google AdMob (Google LLC)</td><td>Identificador de publicidad, información del dispositivo, datos de diagnóstico</td></tr>
+    <tr><td>Entrada por voz (solo cuando se usa)</td><td>Servicio de reconocimiento de voz del dispositivo, elegido en los ajustes del dispositivo (normalmente Google LLC)</td><td>Audio dicho durante la entrada por voz</td></tr>
+  </table>
+  <p>Política de privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+  <h2>Artículo 8 (Permisos de la app)</h2>
+  <p>El Servicio utiliza los permisos siguientes, cada uno solo para la finalidad indicada.</p>
+  <ul>
+    <li><b>Notificaciones</b> (POST_NOTIFICATIONS): solo para mostrar los recordatorios y el resumen matutino configurados por el usuario. Se solicita al configurar el primer recordatorio; sin él se pueden usar todas las funciones salvo las notificaciones.</li>
+    <li><b>Alarmas exactas</b> (SCHEDULE_EXACT_ALARM): función opcional para avisar a la hora exacta. Solo funciona si el usuario la activa en la app y la permite en la pantalla del sistema; si no, los avisos llegan a una hora aproximada decidida por el sistema.</li>
+    <li><b>Inicio del dispositivo completado</b> (RECEIVE_BOOT_COMPLETED): solo para volver a programar los recordatorios tras reiniciar el dispositivo.</li>
+    <li><b>Acceso a internet</b> (INTERNET): solo para el inicio de sesión con Google, la copia de seguridad y restauración con Google Drive y la publicidad.</li>
+    <li><b>Micrófono</b> (RECORD_AUDIO, opcional): solo para introducir tareas por voz. Se solicita la primera vez que se pulsa el botón del micrófono y la app solo escucha mientras se mantiene pulsado. Sin él se pueden usar todas las funciones salvo la entrada por voz.</li>
+  </ul>
+  <p>El Servicio no solicita permisos de SMS, contactos, registro de llamadas, ubicación, fotos ni archivos.</p>
+
+  <h2>Artículo 9 (Publicidad)</h2>
+  <p>El Servicio muestra anuncios de banner mediante Google AdMob. Para personalizar anuncios puede recogerse información como el identificador de publicidad; el usuario puede desactivar la personalización o restablecer el identificador en los ajustes del dispositivo (Ajustes &gt; Privacidad &gt; Anuncios). En regiones que exigen un consentimiento específico, como el Espacio Económico Europeo (EEE) y el Reino Unido, el consentimiento se solicita mediante la plataforma de gestión del consentimiento de Google (UMP), y la elección puede cambiarse en cualquier momento en la app en Ajustes &gt; Información &gt; «Privacidad de anuncios».</p>
+
+  <h2>Artículo 10 (Responsable de privacidad)</h2>
+  <ul>
+    <li>Nombre comercial (proveedor del servicio): TerryWi</li>
+    <li>Responsable de privacidad: TerryWi (representante)</li>
+    <li>Soporte / correo de contacto: wwwtaekyu@gmail.com</li>
+  </ul>
+  <p>El usuario puede dirigir al responsable de privacidad cualquier consulta, reclamación o solicitud de reparación relacionada con la privacidad derivada del uso de Todit.</p>
+
+  <h2>Artículo 11 (Cambios en esta política)</h2>
+  <p>Esta Política de privacidad se aplica desde el 4 de octubre de 2026. Si se añade, elimina o modifica contenido, el Proveedor lo avisará desde 7 días antes de que el cambio entre en vigor, mediante avisos en el Servicio o en este documento.</p>
+  <p>El texto original de esta Política está en coreano. Las traducciones al inglés y a otros 10 idiomas se ofrecen por comodidad; si una traducción difiere del original, prevalece el original en coreano.</p>
+  <p>Publicada: 27 de septiembre de 2026<br>En vigor: 4 de octubre de 2026</p>
+  <p>Historial de revisiones: primera versión el 25 de septiembre de 2026 · revisión publicada el 27 de septiembre de 2026, en vigor desde el 4 de octubre de 2026 (se conserva una sola copia en Drive y solo copia manual; entrada por voz y permiso del micrófono; rutas de menú de la app)</p>
+
+  <p class="contact">Contacto: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

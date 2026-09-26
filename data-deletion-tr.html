@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todit Veri Silme</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <a href="data-deletion-zh-TW.html">繁體中文</a> · <a href="data-deletion-es.html">Español</a> · <a href="data-deletion-pt-BR.html">Português (Brasil)</a> · <a href="data-deletion-fr.html">Français</a> · <a href="data-deletion-de.html">Deutsch</a> · <a href="data-deletion-ru.html">Русский</a> · <b>Türkçe</b> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <a href="data-deletion-vi.html">Tiếng Việt</a></span></div>
+  <h1>Todit Veri Silme</h1>
+  <p class="meta">Uygulama: Todit · Paket: com.todit.todaydoit · Geliştirici: TerryWi · Yürürlük: 4 Ekim 2026</p>
+  <p class="note">Bu belge Korece aslının çevirisidir. Çeviri ile asıl metin arasında fark olursa Korece asıl metin geçerlidir.</p>
+
+  <p>Todit, yapılacakları not edip tarih, tekrar ve hatırlatıcılarla düzenlemeye yarayan kişisel bir yapılacaklar uygulamasıdır. Görev kayıtları kural olarak yalnızca kullanıcının cihazında saklanır ve Sağlayıcı’nın kullanıcıların görev verilerini tutan kendi sunucusu yoktur. Kullanıcı verilerini aşağıdaki yollarla kendisi silebilir veya silinmesini isteyebilir.</p>
+
+  <h2>1. Uygulamada silme (hemen)</h2>
+  <ul>
+    <li><b>Görev silme</b>: satırı sola kaydırıp “Sil”i seçin. Görev, geri alınabilmesi için 30 gün “Son silinenler”de kalır, sonra cihazdan kalıcı olarak silinir.</li>
+    <li><b>Drive yedeğini silme</b>: Ayarlar &gt; Bilgilerim &gt; Bağlı hesap &gt; “Hesabı ayır ve yedekleri sil”. Kullanıcının Google Drive’ındaki uygulamaya ayrılmış klasörde (appDataFolder) duran yedek Google Drive API ile hemen silinir, uygulamaya verilen Drive izni iptal edilir ve Google oturumunun bağlantısı kesilir.</li>
+    <li><b>Oturumu kapatma</b>: Ayarlar &gt; Bilgilerim &gt; “Oturumu kapat”. Google oturumunun bağlantısı hemen kesilir. Drive yedeği kalır ve yeniden oturum açınca geri yüklenebilir.</li>
+    <li><b>Bu cihazdaki kayıtları silme</b>: Ayarlar &gt; Bilgilerim &gt; “Verileri sıfırla”. Bu cihazdaki tüm görevler, alt görevler ve geçmiş hemen silinir. Drive yedeği kalır.</li>
+    <li><b>Uygulamayı kaldırma</b>: “Son silinenler”de duranlar dahil cihazdaki tüm yerel kayıtlar da silinir.</li>
+  </ul>
+
+  <h2>2. E-postayla silme talebi</h2>
+  <p>Sağlayıcı’nın kullanıcıların görev verilerini tutan bir sunucusu olmadığından, silinecek her şey kullanıcının cihazında ve kendi Google Drive’ındadır. Yine de adımlar için yardım isterseniz veya hesap bağlantısıyla ilgili silme için onay almak isterseniz <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a> adresine yazın. Sağlayıcı gecikmeden (7 iş günü içinde) ilgilenir ve sonucu bildirir. Lütfen konu satırına “Veri silme talebi” yazın.</p>
+
+  <h2>3. Silinenler ve saklananlar</h2>
+  <table>
+    <tr><th>Veri türü</th><th>Saklandığı yer</th><th>Nasıl / ne zaman silinir</th><th>Silindikten sonra saklama</th></tr>
+    <tr>
+      <td>Görev kayıtları (görevler ve alt görevler, notlar, tarih ve saatler, tekrar ve hatırlatıcı ayarları, tamamlananların geçmişi, uygulama ayarları)</td>
+      <td>Kullanıcının cihazı (yerel SQLite)</td>
+      <td>“Verileri sıfırla” ile veya uygulama kaldırılınca hemen</td>
+      <td>Yok (sunucuda tutulmaz)</td>
+    </tr>
+    <tr>
+      <td>Silinen görevler</td>
+      <td>Kullanıcının cihazı (“Son silinenler”)</td>
+      <td>Silindikten 30 gün sonra kalıcı olarak (uygulama kaldırılırsa hemen)</td>
+      <td>En çok 30 gün</td>
+    </tr>
+    <tr>
+      <td>Google Drive yedeği (yerel kayıtların JSON kopyası)</td>
+      <td>Kullanıcının Google Drive’ındaki appDataFolder</td>
+      <td>“Hesabı ayır ve yedekleri sil” ile hemen</td>
+      <td>Yok (yalnızca en son yedek tutulur; yalnızca kullanıcı “Şimdi yedekle”ye dokunduğunda oluşturulur, asla otomatik değil)</td>
+    </tr>
+    <tr>
+      <td>Google oturum bilgileri (e-posta, hesap kimliği)</td>
+      <td>Google kimlik doğrulaması (OAuth)</td>
+      <td>“Oturumu kapat” veya “Hesabı ayır ve yedekleri sil” ile hemen bağlantı kesilir</td>
+      <td>Yok</td>
+    </tr>
+    <tr>
+      <td>Sesle giriş sırasında söylenen ses</td>
+      <td>Todit saklamaz (cihazın konuşma tanıma hizmeti işler)</td>
+      <td>—</td>
+      <td>Konuşma tanıma sağlayıcısının (genellikle Google) politikalarına göre</td>
+    </tr>
+    <tr>
+      <td>Reklam kimliği, cihaz bilgileri, tanılama verileri</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Cihazın Ayarlar &gt; Gizlilik &gt; Reklamlar bölümünden reklam kimliğini sıfırlayın veya kişiselleştirmeyi kapatın</td>
+      <td>Google’ın gizlilik politikası ve saklama sürelerine göre</td>
+    </tr>
+  </table>
+
+  <p>Cihaz değiştirmeden önce kayıtlarınızı saklamak isterseniz Ayarlar &gt; Bilgilerim &gt; “Dosyaya aktar” ile JSON dosyası olarak dışa aktarabilirsiniz. Kişisel verilerin işlenmesiyle ilgili ayrıntılar için <a href="privacy-tr.html">Todit Gizlilik Politikası</a>’na bakın.</p>
+  <p>Bu bilgilendirmenin asıl metni Korecedir; bir çeviri ondan farklıysa Korece asıl metin geçerlidir.</p>
+
+  <p class="contact">İletişim: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

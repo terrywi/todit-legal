@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todit Datenlöschung</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <a href="data-deletion-zh-TW.html">繁體中文</a> · <a href="data-deletion-es.html">Español</a> · <a href="data-deletion-pt-BR.html">Português (Brasil)</a> · <a href="data-deletion-fr.html">Français</a> · <b>Deutsch</b> · <a href="data-deletion-ru.html">Русский</a> · <a href="data-deletion-tr.html">Türkçe</a> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <a href="data-deletion-vi.html">Tiếng Việt</a></span></div>
+  <h1>Todit Datenlöschung</h1>
+  <p class="meta">App: Todit · Paket: com.todit.todaydoit · Entwickler: TerryWi · Gültig ab 4. Oktober 2026</p>
+  <p class="note">Dieses Dokument ist eine Übersetzung des koreanischen Originals. Weicht die Übersetzung vom Original ab, gilt das koreanische Original.</p>
+
+  <p>Todit ist eine persönliche Aufgaben-App, mit der man Aufgaben notiert und nach Datum, Wiederholung und Erinnerungen organisiert. Aufgabeneinträge werden grundsätzlich nur auf dem Gerät des Nutzers gespeichert, und der Anbieter betreibt keinen eigenen Server mit Aufgabendaten der Nutzer. Nutzer können ihre Daten auf folgende Weise selbst löschen oder die Löschung beantragen.</p>
+
+  <h2>1. In der App löschen (sofort)</h2>
+  <ul>
+    <li><b>Aufgabe löschen</b>: Zeile nach links wischen und „Löschen“ wählen. Die Aufgabe bleibt 30 Tage unter „Zuletzt gelöscht“, damit sie wiederhergestellt werden kann, und wird danach endgültig vom Gerät gelöscht.</li>
+    <li><b>Drive-Sicherung löschen</b>: Einstellungen &gt; Meine Infos &gt; Verbundenes Konto &gt; „Konto trennen &amp; Sicherungen löschen“. Die im app-eigenen Ordner (appDataFolder) des Google Drive des Nutzers gespeicherte Sicherung wird über die Google Drive API sofort gelöscht, die der App erteilte Drive-Berechtigung widerrufen und die Google-Anmeldung getrennt.</li>
+    <li><b>Abmelden</b>: Einstellungen &gt; Meine Infos &gt; „Abmelden“. Die Google-Anmeldung wird sofort getrennt. Die Drive-Sicherung bleibt erhalten und kann nach erneuter Anmeldung wiederhergestellt werden.</li>
+    <li><b>Einträge auf diesem Gerät löschen</b>: Einstellungen &gt; Meine Infos &gt; „Daten zurücksetzen“. Alle Aufgaben, Unteraufgaben und der Verlauf auf diesem Gerät werden sofort gelöscht. Die Drive-Sicherung bleibt erhalten.</li>
+    <li><b>App deinstallieren</b>: alle lokalen Einträge auf dem Gerät, einschließlich allem, was noch unter „Zuletzt gelöscht“ liegt, werden mitgelöscht.</li>
+  </ul>
+
+  <h2>2. Löschung per E-Mail beantragen</h2>
+  <p>Da der Anbieter keinen Server mit Aufgabendaten der Nutzer betreibt, liegt alles, was zu löschen ist, auf dem Gerät des Nutzers und in seinem eigenen Google Drive. Wenn Sie dennoch Hilfe bei den Schritten oder eine Bestätigung zur Löschung im Zusammenhang mit der Kontoverknüpfung wünschen, schreiben Sie an <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a>. Der Anbieter handelt unverzüglich (innerhalb von 7 Werktagen) und antwortet mit dem Ergebnis. Bitte geben Sie im Betreff „Antrag auf Datenlöschung“ an.</p>
+
+  <h2>3. Was gelöscht und was aufbewahrt wird</h2>
+  <table>
+    <tr><th>Datenart</th><th>Speicherort</th><th>Wie / wann gelöscht</th><th>Aufbewahrung nach Löschung</th></tr>
+    <tr>
+      <td>Aufgabeneinträge (Aufgaben und Unteraufgaben, Notizen, Datum und Uhrzeit, Wiederholungen und Erinnerungen, Verlauf erledigter Aufgaben, App-Einstellungen)</td>
+      <td>Gerät des Nutzers (lokales SQLite)</td>
+      <td>Sofort mit „Daten zurücksetzen“ oder beim Deinstallieren der App</td>
+      <td>Keine (nicht auf Servern gespeichert)</td>
+    </tr>
+    <tr>
+      <td>Gelöschte Aufgaben</td>
+      <td>Gerät des Nutzers („Zuletzt gelöscht“)</td>
+      <td>30 Tage nach dem Löschen endgültig gelöscht (sofort beim Deinstallieren der App)</td>
+      <td>Bis zu 30 Tage</td>
+    </tr>
+    <tr>
+      <td>Google-Drive-Sicherung (JSON-Kopie der lokalen Einträge)</td>
+      <td>appDataFolder im Google Drive des Nutzers</td>
+      <td>Sofort mit „Konto trennen &amp; Sicherungen löschen“</td>
+      <td>Keine (nur die neueste Sicherung wird aufbewahrt; sie entsteht nur, wenn der Nutzer auf „Jetzt sichern“ tippt, nie automatisch)</td>
+    </tr>
+    <tr>
+      <td>Google-Anmeldedaten (E-Mail, Konto-ID)</td>
+      <td>Google-Authentifizierung (OAuth)</td>
+      <td>Sofort getrennt mit „Abmelden“ oder „Konto trennen &amp; Sicherungen löschen“</td>
+      <td>Keine</td>
+    </tr>
+    <tr>
+      <td>Während der Spracheingabe gesprochenes Audio</td>
+      <td>Nicht von Todit gespeichert (verarbeitet vom Spracherkennungsdienst des Geräts)</td>
+      <td>—</td>
+      <td>Nach den Richtlinien des Spracherkennungsanbieters (meist Google)</td>
+    </tr>
+    <tr>
+      <td>Werbe-ID, Geräteinformationen, Diagnosedaten</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Werbe-ID zurücksetzen oder Personalisierung deaktivieren unter Einstellungen &gt; Datenschutz &gt; Werbung des Geräts</td>
+      <td>Nach der Datenschutzerklärung und den Speicherfristen von Google</td>
+    </tr>
+  </table>
+
+  <p>Um Ihre Einträge vor einem Gerätewechsel zu behalten, können Sie sie unter Einstellungen &gt; Meine Infos &gt; „In Datei exportieren“ als JSON-Datei exportieren. Einzelheiten zur Verarbeitung personenbezogener Daten finden Sie in der <a href="privacy-de.html">Todit Datenschutzerklärung</a>.</p>
+  <p>Der Originaltext dieses Hinweises ist Koreanisch; weicht eine Übersetzung davon ab, gilt das koreanische Original.</p>
+
+  <p class="contact">Kontakt: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

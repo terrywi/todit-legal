@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kebijakan Privasi Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="privacy.html">한국어</a> · <a href="privacy-en.html">English</a> · <a href="privacy-ja.html">日本語</a> · <a href="privacy-zh-TW.html">繁體中文</a> · <a href="privacy-es.html">Español</a> · <a href="privacy-pt-BR.html">Português (Brasil)</a> · <a href="privacy-fr.html">Français</a> · <a href="privacy-de.html">Deutsch</a> · <a href="privacy-ru.html">Русский</a> · <a href="privacy-tr.html">Türkçe</a> · <b>Bahasa Indonesia</b> · <a href="privacy-vi.html">Tiếng Việt</a></span></div>
+  <h1>Kebijakan Privasi Todit</h1>
+  <p class="meta">Diumumkan 27 September 2026 · Berlaku mulai 4 Oktober 2026</p>
+  <p class="note">Dokumen ini adalah terjemahan dari naskah asli berbahasa Korea. Jika terjemahan berbeda dengan naskah asli, naskah asli berbahasa Korea yang berlaku.</p>
+
+  <p>TerryWi (“Penyedia”) menetapkan dan mengumumkan Kebijakan Privasi ini berdasarkan Pasal 30 Undang-Undang Perlindungan Data Pribadi Korea, untuk melindungi data pribadi pengguna dan menangani keluhan terkait dengan cepat dan lancar. Todit adalah aplikasi daftar tugas pribadi untuk mencatat hal yang perlu dilakukan dan mengaturnya berdasarkan tanggal, pengulangan, dan pengingat. Pada prinsipnya, semua catatan hanya disimpan di perangkat pengguna.</p>
+
+  <h2>Pasal 1 (Tujuan pengumpulan dan penggunaan)</h2>
+  <p>Penyedia memproses data pribadi seminimal mungkin untuk tujuan berikut. Data yang diproses tidak digunakan untuk tujuan lain; jika tujuannya berubah, Penyedia akan mengambil langkah yang diperlukan, seperti meminta persetujuan terpisah sesuai Pasal 18 undang-undang yang sama.</p>
+  <ul>
+    <li><b>Fungsi utama</b>: semua fungsi pengelolaan tugas Todit (“Layanan”) — tugas dan subtugas, tanggal dan pengulangan, tampilan kalender, riwayat dan statistik tugas selesai, pencarian — hanya disimpan di perangkat pengguna, dan Penyedia tidak mengumpulkan atau menyimpan data pribadi untuk tujuan ini.</li>
+    <li><b>Notifikasi</b>: pengingat dan ringkasan pagi yang diatur pengguna dijadwalkan dan ditampilkan di perangkat itu sendiri. Semuanya terjadi di perangkat dan tidak ada informasi yang dikirim ke luar.</li>
+    <li><b>Identifikasi pengguna serta pencadangan/pemulihan</b>: identifikasi pengguna melalui masuk dengan Google, serta pencadangan dan pemulihan catatan melalui Google Drive milik pengguna sendiri.</li>
+    <li><b>Input suara (opsional)</b>: mengubah ucapan pengguna saat menahan tombol mikrofon menjadi teks dan memasukkannya ke kolom tugas.</li>
+    <li><b>Iklan</b>: membiayai operasional Layanan melalui iklan banner Google AdMob.</li>
+  </ul>
+
+  <h2>Pasal 2 (Data yang dikumpulkan dan cara pengumpulan)</h2>
+  <p><b>Data yang dikumpulkan</b></p>
+  <ul>
+    <li><b>[Saat masuk, opsional] Informasi Akun Google</b>: alamat email dan ID Akun Google, diperoleh melalui masuk dengan Google (OAuth). Semua fungsi dapat digunakan tanpa batas tanpa masuk; masuk hanya diperlukan untuk pencadangan dan pemulihan dengan Google Drive.</li>
+    <li><b>[Dibuat pengguna di aplikasi, disimpan di perangkat] Catatan tugas</b>: judul tugas, subtugas, catatan, tanggal dan waktu rencana, pengulangan, pengingat, lingkup pribadi/kerja, riwayat tugas selesai, urutan, serta setelan aplikasi seperti tema dan bahasa. Informasi ini hanya disimpan di penyimpanan perangkat (SQLite) dan tidak dikirim ke server Penyedia (Penyedia tidak mengoperasikan server sendiri).</li>
+    <li><b>[Saat menggunakan pencadangan] Data cadangan Google Drive</b>: setiap kali pengguna mengetuk “Cadangkan sekarang”, seluruh catatan lokal di atas disimpan dalam format JSON di ruang khusus aplikasi (appDataFolder) di Google Drive milik pengguna. Aplikasi tidak pernah mencadangkan secara otomatis. Ruang ini bersifat privat — bahkan pengguna sendiri tidak dapat membukanya dari aplikasi Google Drive — dan tidak ada pihak ketiga, termasuk Penyedia, yang dapat mengakses data ini.</li>
+    <li><b>[Saat menggunakan input suara, opsional] Suara</b>: aplikasi hanya mendengarkan selama pengguna menahan tombol mikrofon. Layanan pengenalan ucapan perangkat (mis. Google) mengubah ucapan menjadi teks dan untuk itu dapat mengirim audio ke servernya sendiri. Todit tidak menyimpan atau mengirim audio; Todit hanya memasukkan teks hasilnya ke kolom.</li>
+    <li><b>[Dikumpulkan otomatis oleh SDK iklan] ID iklan dan informasi perangkat</b>: Layanan menampilkan iklan banner melalui Google AdMob, dan dalam prosesnya Google dapat mengumpulkan ID iklan, informasi perangkat, serta data diagnostik terkait tayangan dan klik. Penyedia tidak mengumpulkan atau menyimpan informasi ini secara langsung; informasi ini diproses sesuai kebijakan privasi Google.</li>
+  </ul>
+  <p><b>Cara pengumpulan</b>: input langsung oleh pengguna saat menggunakan Layanan (termasuk input suara), penautan Akun Google (OAuth), dan pengumpulan otomatis oleh SDK iklan. Layanan tidak mengakses data pribadi lain di perangkat, seperti kontak, pesan, log panggilan, lokasi, atau foto.</p>
+
+  <h2>Pasal 3 (Pemrosesan dan masa penyimpanan)</h2>
+  <ul>
+    <li><b>Informasi masuk Google</b>: segera diputus dan dimusnahkan saat pengguna memilih “Keluar” atau “Putuskan akun &amp; hapus cadangan”.</li>
+    <li><b>Catatan di perangkat</b>: dihapus dari perangkat begitu pengguna mencopot aplikasi. Karena tidak ada yang disimpan di server Penyedia, pengguna dapat menghapus semuanya sendiri sepenuhnya.</li>
+    <li><b>Tugas yang dihapus</b>: agar yang terhapus tidak sengaja bisa dikembalikan, tugas disimpan di “Baru dihapus” <b>selama 30 hari</b>, lalu dihapus permanen dari perangkat. Pengguna dapat menghapusnya lebih awal dengan “Reset data” atau mencopot aplikasi.</li>
+    <li><b>Data cadangan Google Drive</b>: di Drive pengguna hanya disimpan <b>cadangan terbaru</b>; setiap cadangan baru menggantikan yang sebelumnya. Cadangan langsung dihapus dengan “Putuskan akun &amp; hapus cadangan”; jika pengguna hanya memilih “Keluar”, cadangan tetap ada dan dapat dipulihkan setelah masuk kembali.</li>
+    <li><b>Suara</b>: Todit tidak menyimpannya. Audio yang diproses layanan pengenalan ucapan perangkat tunduk pada kebijakan penyedia layanan tersebut.</li>
+    <li><b>ID iklan dan data diagnostik lainnya</b>: tunduk pada kebijakan dan masa penyimpanan Google.</li>
+  </ul>
+
+  <h2>Pasal 4 (Prosedur dan cara pemusnahan)</h2>
+  <ul>
+    <li><b>Prosedur</b>: saat pengguna memilih “Keluar”, “Putuskan akun &amp; hapus cadangan”, atau “Reset data”, atau mencopot aplikasi, prosesnya langsung dijalankan tanpa langkah persetujuan tambahan. Penghapusan satu tugas menjadi permanen secara otomatis setelah masa pemulihan 30 hari berakhir.</li>
+    <li><b>Cara</b>: data lokal dihapus dari penyimpanan perangkat, dan file cadangan Google Drive dihapus melalui Google Drive API sehingga tidak dapat dipulihkan.</li>
+  </ul>
+
+  <h2>Pasal 5 (Hak pengguna dan cara menggunakannya)</h2>
+  <p>Pengguna dapat menggunakan hak berikut kapan saja langsung dari setelan aplikasi.</p>
+  <ul>
+    <li><b>Ekspor catatan</b> (Setelan &gt; Info saya &gt; Ekspor ke file): mengunduh semua catatan di perangkat sebagai file JSON untuk disimpan atau dipindahkan</li>
+    <li><b>Baru dihapus</b> (Tinjauan &gt; Arsip &gt; Baru dihapus): memulihkan dalam 30 hari; setelah itu dihapus permanen</li>
+    <li><b>Menghapus cadangan Drive</b> (Setelan &gt; Info saya &gt; Akun terhubung &gt; “Putuskan akun &amp; hapus cadangan”): menghapus cadangan di Google Drive, mencabut izin Drive yang diberikan ke aplikasi, dan memutus masuk Google</li>
+    <li><b>Keluar</b> (Setelan &gt; Info saya &gt; Keluar): memutus masuk Google (cadangan Drive dan catatan lokal di perangkat tetap ada)</li>
+    <li><b>Reset data</b> (Setelan &gt; Info saya &gt; Reset data): menghapus semua tugas, subtugas, dan riwayat di perangkat ini (cadangan Drive tetap ada)</li>
+    <li><b>Mencabut izin notifikasi</b>: kapan saja dari setelan sistem (hanya notifikasi yang berhenti; fungsi lain tetap berjalan)</li>
+    <li><b>Mencabut izin mikrofon</b>: kapan saja dari setelan sistem (hanya input suara yang berhenti; mengetik tetap bisa)</li>
+    <li><b>Mencopot aplikasi</b>: semua catatan lokal di perangkat ikut dihapus</li>
+  </ul>
+  <p>Pertanyaan lain tentang data pribadi dapat dikirim ke email dukungan (wwwtaekyu@gmail.com), dan Penyedia akan menanganinya tanpa penundaan. Layanan ini tidak ditujukan untuk anak di bawah 14 tahun dan tidak dengan sengaja mengumpulkan data pribadi anak.</p>
+
+  <h2>Pasal 6 (Langkah keamanan)</h2>
+  <ul>
+    <li><b>Langkah teknis</b>: catatan tugas hanya disimpan di penyimpanan lokal perangkat (SQLite) dan tidak dikirim ke luar. Autentikasi Google menggunakan alur OAuth standar Google, dan komunikasi dengan Google Drive dienkripsi dengan TLS. Cadangan disimpan di ruang privat khusus aplikasi (appDataFolder) bahkan di dalam Drive pengguna, sehingga pihak ketiga tidak dapat mengaksesnya.</li>
+    <li><b>Langkah administratif</b>: jumlah orang yang terlibat dalam pemrosesan data pribadi dijaga seminimal mungkin.</li>
+  </ul>
+
+  <h2>Pasal 7 (Pemrosesan oleh pihak lain dan pemberian kepada pihak ketiga)</h2>
+  <p>Penyedia tidak mengoperasikan server sendiri yang menyimpan data tugas pengguna. Penyedia menggunakan layanan berikut untuk setiap tujuan, dan informasi yang diproses di tiap layanan tunduk pada kebijakan privasi penyedia layanan tersebut.</p>
+  <table>
+    <tr><th>Tujuan</th><th>Layanan yang digunakan</th><th>Informasi yang diproses</th></tr>
+    <tr><td>Masuk</td><td>Google Sign-In (Google LLC)</td><td>Email, ID akun</td></tr>
+    <tr><td>Pencadangan dan pemulihan</td><td>Google Drive API — appDataFolder (Google LLC)</td><td>Semua catatan lokal yang dibuat pengguna</td></tr>
+    <tr><td>Iklan</td><td>Google AdMob (Google LLC)</td><td>ID iklan, informasi perangkat, data diagnostik</td></tr>
+    <tr><td>Input suara (hanya saat digunakan)</td><td>Layanan pengenalan ucapan perangkat — yang dipilih di setelan perangkat (biasanya Google LLC)</td><td>Audio yang diucapkan selama input suara</td></tr>
+  </table>
+  <p>Kebijakan Privasi Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+  <h2>Pasal 8 (Izin aplikasi)</h2>
+  <p>Layanan menggunakan izin berikut, masing-masing hanya untuk tujuan yang disebutkan.</p>
+  <ul>
+    <li><b>Notifikasi</b> (POST_NOTIFICATIONS): hanya untuk menampilkan pengingat dan ringkasan pagi yang diatur pengguna. Diminta saat pengguna mengatur pengingat pertama; tanpa izin ini, semua fungsi selain notifikasi tetap dapat digunakan.</li>
+    <li><b>Alarm tepat waktu</b> (SCHEDULE_EXACT_ALARM): fungsi opsional untuk mengingatkan tepat pada menitnya. Hanya berfungsi jika pengguna mengaktifkannya di aplikasi dan mengizinkannya di layar sistem; jika tidak, pengingat datang pada waktu perkiraan yang ditentukan sistem.</li>
+    <li><b>Penerimaan booting selesai</b> (RECEIVE_BOOT_COMPLETED): hanya untuk menjadwalkan ulang pengingat setelah perangkat dinyalakan ulang.</li>
+    <li><b>Akses internet</b> (INTERNET): hanya untuk masuk dengan Google, pencadangan dan pemulihan dengan Google Drive, dan iklan.</li>
+    <li><b>Mikrofon</b> (RECORD_AUDIO, opsional): hanya untuk memasukkan tugas dengan suara. Diminta saat tombol mikrofon pertama kali ditekan, dan aplikasi hanya mendengarkan selama tombol ditahan. Tanpa izin ini, semua fungsi selain input suara tetap dapat digunakan.</li>
+  </ul>
+  <p>Layanan tidak meminta izin SMS, kontak, log panggilan, lokasi, foto, atau file.</p>
+
+  <h2>Pasal 9 (Iklan)</h2>
+  <p>Layanan menampilkan iklan banner melalui Google AdMob. Informasi seperti ID iklan dapat dikumpulkan untuk personalisasi iklan; pengguna dapat menonaktifkan personalisasi atau mereset ID iklan di setelan perangkat (Setelan &gt; Privasi &gt; Iklan). Di wilayah yang mewajibkan persetujuan tersendiri, seperti Wilayah Ekonomi Eropa (EEA) dan Inggris, persetujuan diminta melalui platform pengelolaan persetujuan Google (UMP), dan pilihan dapat diubah kapan saja di aplikasi melalui Setelan &gt; Tentang &gt; “Privasi iklan”.</p>
+
+  <h2>Pasal 10 (Penanggung jawab privasi)</h2>
+  <ul>
+    <li>Nama usaha (penyedia layanan): TerryWi</li>
+    <li>Penanggung jawab privasi: TerryWi (pemilik)</li>
+    <li>Dukungan / email kontak: wwwtaekyu@gmail.com</li>
+  </ul>
+  <p>Pengguna dapat menyampaikan pertanyaan, keluhan, atau permintaan ganti rugi apa pun terkait privasi yang timbul dari penggunaan Todit kepada penanggung jawab privasi.</p>
+
+  <h2>Pasal 11 (Perubahan kebijakan ini)</h2>
+  <p>Kebijakan Privasi ini berlaku mulai 4 Oktober 2026. Jika ada penambahan, penghapusan, atau perubahan isi, Penyedia akan memberi tahu mulai 7 hari sebelum perubahan berlaku, melalui pemberitahuan di Layanan atau di dokumen ini.</p>
+  <p>Naskah asli Kebijakan ini berbahasa Korea. Terjemahan ke bahasa Inggris dan 10 bahasa lain disediakan untuk kemudahan; jika terjemahan berbeda dengan naskah asli, naskah asli berbahasa Korea yang berlaku.</p>
+  <p>Diumumkan: 27 September 2026<br>Berlaku: 4 Oktober 2026</p>
+  <p>Riwayat revisi: versi pertama 25 September 2026 · revisi diumumkan 27 September 2026, berlaku 4 Oktober 2026 (hanya satu cadangan Drive dan hanya pencadangan manual; input suara dan izin mikrofon; jalur menu aplikasi)</p>
+
+  <p class="contact">Kontak: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

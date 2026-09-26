@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exclusão de dados do Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <a href="data-deletion-zh-TW.html">繁體中文</a> · <a href="data-deletion-es.html">Español</a> · <b>Português (Brasil)</b> · <a href="data-deletion-fr.html">Français</a> · <a href="data-deletion-de.html">Deutsch</a> · <a href="data-deletion-ru.html">Русский</a> · <a href="data-deletion-tr.html">Türkçe</a> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <a href="data-deletion-vi.html">Tiếng Việt</a></span></div>
+  <h1>Exclusão de dados do Todit</h1>
+  <p class="meta">App: Todit · Pacote: com.todit.todaydoit · Desenvolvedor: TerryWi · Em vigor a partir de 4 de outubro de 2026</p>
+  <p class="note">Este documento é uma tradução do original em coreano. Se a tradução divergir do original, prevalece o original em coreano.</p>
+
+  <p>O Todit é um app pessoal de tarefas para anotar o que precisa ser feito e organizar por data, repetição e lembretes. Como regra, os registros de tarefas ficam somente no dispositivo do usuário, e o Fornecedor não mantém servidor próprio que armazene os dados de tarefas dos usuários. O usuário pode excluir os próprios dados, ou pedir a exclusão, das formas abaixo.</p>
+
+  <h2>1. Excluir no app (imediato)</h2>
+  <ul>
+    <li><b>Excluir uma tarefa</b>: deslize a linha para a esquerda e escolha “Excluir”. A tarefa fica 30 dias em “Excluídas recentemente” para que possa ser recuperada e depois é excluída definitivamente do dispositivo.</li>
+    <li><b>Excluir o backup do Drive</b>: Configurações &gt; Minhas informações &gt; Conta conectada &gt; “Desconectar conta e excluir backups”. O backup salvo na pasta exclusiva do app (appDataFolder) no Google Drive do usuário é excluído imediatamente pela API do Google Drive, a permissão do Drive concedida ao app é revogada e o login do Google é desvinculado.</li>
+    <li><b>Sair</b>: Configurações &gt; Minhas informações &gt; “Sair”. O login do Google é desvinculado imediatamente. O backup do Drive é mantido e pode ser restaurado ao fazer login de novo.</li>
+    <li><b>Excluir os registros deste dispositivo</b>: Configurações &gt; Minhas informações &gt; “Redefinir dados”. Todas as tarefas, subtarefas e o histórico deste dispositivo são excluídos imediatamente. O backup do Drive é mantido.</li>
+    <li><b>Desinstalar o app</b>: todos os registros locais do dispositivo, inclusive o que ainda estiver em “Excluídas recentemente”, são excluídos junto.</li>
+  </ul>
+
+  <h2>2. Pedir a exclusão por e-mail</h2>
+  <p>Como o Fornecedor não mantém nenhum servidor com dados de tarefas dos usuários, tudo o que precisa ser excluído está no dispositivo do usuário e no próprio Google Drive dele. Mesmo assim, se precisar de ajuda com as etapas ou quiser uma confirmação sobre a exclusão relacionada à vinculação da conta, escreva para <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a>. O Fornecedor agirá sem demora (em até 7 dias úteis) e responderá com o resultado. Coloque “Pedido de exclusão de dados” no assunto.</p>
+
+  <h2>3. O que é excluído e o que é mantido</h2>
+  <table>
+    <tr><th>Tipo de dado</th><th>Onde fica</th><th>Como / quando é excluído</th><th>Retenção após a exclusão</th></tr>
+    <tr>
+      <td>Registros de tarefas (tarefas e subtarefas, notas, datas e horários, repetições e lembretes, histórico de concluídas, configurações do app)</td>
+      <td>Dispositivo do usuário (SQLite local)</td>
+      <td>Imediatamente com “Redefinir dados” ou ao desinstalar o app</td>
+      <td>Nenhuma (não fica em servidores)</td>
+    </tr>
+    <tr>
+      <td>Tarefas excluídas</td>
+      <td>Dispositivo do usuário (“Excluídas recentemente”)</td>
+      <td>Excluídas definitivamente 30 dias depois (imediatamente se o app for desinstalado)</td>
+      <td>Até 30 dias</td>
+    </tr>
+    <tr>
+      <td>Backup do Google Drive (cópia JSON dos registros locais)</td>
+      <td>appDataFolder do Google Drive do usuário</td>
+      <td>Imediatamente com “Desconectar conta e excluir backups”</td>
+      <td>Nenhuma (somente o backup mais recente é mantido; ele só é criado quando o usuário toca em “Fazer backup agora”, nunca automaticamente)</td>
+    </tr>
+    <tr>
+      <td>Informações de login do Google (e-mail, identificador da conta)</td>
+      <td>Autenticação do Google (OAuth)</td>
+      <td>Desvinculadas imediatamente com “Sair” ou “Desconectar conta e excluir backups”</td>
+      <td>Nenhuma</td>
+    </tr>
+    <tr>
+      <td>Áudio falado durante a entrada por voz</td>
+      <td>O Todit não armazena (tratado pelo serviço de reconhecimento de voz do dispositivo)</td>
+      <td>—</td>
+      <td>Conforme as políticas do fornecedor de reconhecimento de voz (geralmente o Google)</td>
+    </tr>
+    <tr>
+      <td>Identificador de publicidade, informações do dispositivo, dados de diagnóstico</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Redefina o ID de publicidade ou desative a personalização em Configurações &gt; Privacidade &gt; Anúncios do dispositivo</td>
+      <td>Conforme a política de privacidade e os prazos de retenção do Google</td>
+    </tr>
+  </table>
+
+  <p>Para guardar seus registros antes de trocar de dispositivo, você pode exportá-los como arquivo JSON em Configurações &gt; Minhas informações &gt; “Exportar para arquivo”. Para mais detalhes sobre o tratamento de dados pessoais, consulte a <a href="privacy-pt-BR.html">Política de Privacidade do Todit</a>.</p>
+  <p>O texto original deste aviso está em coreano; se uma tradução divergir dele, prevalece o original em coreano.</p>
+
+  <p class="contact">Contato: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

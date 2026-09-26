@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eliminación de datos de Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="data-deletion.html">한국어</a> · <a href="data-deletion-en.html">English</a> · <a href="data-deletion-ja.html">日本語</a> · <a href="data-deletion-zh-TW.html">繁體中文</a> · <b>Español</b> · <a href="data-deletion-pt-BR.html">Português (Brasil)</a> · <a href="data-deletion-fr.html">Français</a> · <a href="data-deletion-de.html">Deutsch</a> · <a href="data-deletion-ru.html">Русский</a> · <a href="data-deletion-tr.html">Türkçe</a> · <a href="data-deletion-id.html">Bahasa Indonesia</a> · <a href="data-deletion-vi.html">Tiếng Việt</a></span></div>
+  <h1>Eliminación de datos de Todit</h1>
+  <p class="meta">App: Todit · Paquete: com.todit.todaydoit · Desarrollador: TerryWi · En vigor desde el 4 de octubre de 2026</p>
+  <p class="note">Este documento es una traducción del original en coreano. Si la traducción difiere del original, prevalece el original en coreano.</p>
+
+  <p>Todit es una app personal de tareas para anotar lo que hay que hacer y gestionarlo por fecha, repetición y recordatorios. Como regla general, los registros de tareas se guardan solo en el dispositivo del usuario, y el Proveedor no tiene servidor propio que almacene los datos de tareas de los usuarios. El usuario puede eliminar sus datos o solicitar su eliminación de las formas siguientes.</p>
+
+  <h2>1. Eliminar desde la app (inmediato)</h2>
+  <ul>
+    <li><b>Eliminar una tarea</b>: desliza la fila hacia la izquierda y elige «Eliminar». La tarea se conserva 30 días en «Eliminadas recientemente» por si quieres recuperarla y después se elimina definitivamente del dispositivo.</li>
+    <li><b>Eliminar la copia de Drive</b>: Ajustes &gt; Mi información &gt; Cuenta conectada &gt; «Desconectar cuenta y eliminar copias». La copia guardada en la carpeta exclusiva de la app (appDataFolder) del Google Drive del usuario se elimina de inmediato mediante la API de Google Drive, se revoca el permiso de Drive concedido a la app y se desvincula el inicio de sesión de Google.</li>
+    <li><b>Cerrar sesión</b>: Ajustes &gt; Mi información &gt; «Cerrar sesión». El inicio de sesión de Google se desvincula de inmediato. La copia de Drive se mantiene y puede restaurarse al volver a iniciar sesión.</li>
+    <li><b>Eliminar los registros de este dispositivo</b>: Ajustes &gt; Mi información &gt; «Restablecer datos». Se eliminan de inmediato todas las tareas, subtareas e historial de este dispositivo. La copia de Drive se mantiene.</li>
+    <li><b>Desinstalar la app</b>: se eliminan con ella todos los registros locales del dispositivo, incluido lo que siga en «Eliminadas recientemente».</li>
+  </ul>
+
+  <h2>2. Solicitar la eliminación por correo</h2>
+  <p>Como el Proveedor no tiene ningún servidor con datos de tareas de los usuarios, todo lo que hay que eliminar está en el dispositivo del usuario y en su propio Google Drive. Aun así, si necesitas ayuda con los pasos o quieres una confirmación sobre la eliminación relacionada con la vinculación de la cuenta, escribe a <a href="mailto:wwwtaekyu@gmail.com">wwwtaekyu@gmail.com</a>. El Proveedor actuará sin demora (en un plazo de 7 días hábiles) y responderá con el resultado. Indica «Solicitud de eliminación de datos» en el asunto.</p>
+
+  <h2>3. Qué se elimina y qué se conserva</h2>
+  <table>
+    <tr><th>Tipo de datos</th><th>Dónde se guardan</th><th>Cómo / cuándo se eliminan</th><th>Conservación tras la eliminación</th></tr>
+    <tr>
+      <td>Registros de tareas (tareas y subtareas, notas, fechas y horas, repeticiones y recordatorios, historial de completadas, ajustes de la app)</td>
+      <td>Dispositivo del usuario (SQLite local)</td>
+      <td>De inmediato con «Restablecer datos» o al desinstalar la app</td>
+      <td>Ninguna (no se guardan en servidores)</td>
+    </tr>
+    <tr>
+      <td>Tareas eliminadas</td>
+      <td>Dispositivo del usuario («Eliminadas recientemente»)</td>
+      <td>Se eliminan definitivamente 30 días después (de inmediato si se desinstala la app)</td>
+      <td>Hasta 30 días</td>
+    </tr>
+    <tr>
+      <td>Copia de Google Drive (copia JSON de los registros locales)</td>
+      <td>appDataFolder del Google Drive del usuario</td>
+      <td>De inmediato con «Desconectar cuenta y eliminar copias»</td>
+      <td>Ninguna (solo se conserva la copia más reciente; se crea únicamente cuando el usuario pulsa «Hacer copia ahora», nunca de forma automática)</td>
+    </tr>
+    <tr>
+      <td>Información de inicio de sesión de Google (correo, identificador de la cuenta)</td>
+      <td>Autenticación de Google (OAuth)</td>
+      <td>Se desvincula de inmediato con «Cerrar sesión» o «Desconectar cuenta y eliminar copias»</td>
+      <td>Ninguna</td>
+    </tr>
+    <tr>
+      <td>Audio dicho durante la entrada por voz</td>
+      <td>Todit no lo guarda (lo trata el servicio de reconocimiento de voz del dispositivo)</td>
+      <td>—</td>
+      <td>Según las políticas del proveedor de reconocimiento de voz (normalmente Google)</td>
+    </tr>
+    <tr>
+      <td>Identificador de publicidad, información del dispositivo, datos de diagnóstico</td>
+      <td>Google AdMob (Google LLC)</td>
+      <td>Restablece el ID de publicidad o desactiva la personalización en Ajustes &gt; Privacidad &gt; Anuncios del dispositivo</td>
+      <td>Según la política de privacidad y los plazos de conservación de Google</td>
+    </tr>
+  </table>
+
+  <p>Para conservar tus registros antes de cambiar de dispositivo, puedes exportarlos como archivo JSON en Ajustes &gt; Mi información &gt; «Exportar a un archivo». Para más detalles sobre el tratamiento de los datos personales, consulta la <a href="privacy-es.html">Política de privacidad de Todit</a>.</p>
+  <p>El texto original de este aviso está en coreano; si una traducción difiere de él, prevalece el original en coreano.</p>
+
+  <p class="contact">Contacto: wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>

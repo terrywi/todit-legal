@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité de Todit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <div class="nav"><a href="index.html">← Todit</a><span class="langs"><a href="privacy.html">한국어</a> · <a href="privacy-en.html">English</a> · <a href="privacy-ja.html">日本語</a> · <a href="privacy-zh-TW.html">繁體中文</a> · <a href="privacy-es.html">Español</a> · <a href="privacy-pt-BR.html">Português (Brasil)</a> · <b>Français</b> · <a href="privacy-de.html">Deutsch</a> · <a href="privacy-ru.html">Русский</a> · <a href="privacy-tr.html">Türkçe</a> · <a href="privacy-id.html">Bahasa Indonesia</a> · <a href="privacy-vi.html">Tiếng Việt</a></span></div>
+  <h1>Politique de confidentialité de Todit</h1>
+  <p class="meta">Publiée le 27 septembre 2026 · En vigueur à partir du 4 octobre 2026</p>
+  <p class="note">Ce document est une traduction de l’original coréen. En cas de divergence, l’original coréen prévaut.</p>
+
+  <p>TerryWi (le « Fournisseur ») établit et publie la présente Politique de confidentialité, conformément à l’article 30 de la loi coréenne sur la protection des données personnelles, afin de protéger les données personnelles des utilisateurs et de traiter rapidement et efficacement les réclamations qui s’y rapportent. Todit est une app personnelle de tâches pour noter ce qu’il y a à faire et l’organiser par date, répétition et rappels. En règle générale, tous les enregistrements sont stockés uniquement sur l’appareil de l’utilisateur.</p>
+
+  <h2>Article 1 (Finalités de la collecte et de l’utilisation)</h2>
+  <p>Le Fournisseur traite le minimum de données personnelles pour les finalités suivantes. Les données traitées ne sont utilisées à aucune autre fin et, si la finalité change, le Fournisseur prendra les mesures nécessaires, par exemple recueillir un consentement distinct conformément à l’article 18 de la même loi.</p>
+  <ul>
+    <li><b>Fonctions principales</b> : toutes les fonctions de gestion des tâches de Todit (le « Service ») — tâches et sous-tâches, dates et répétitions, vue calendrier, historique et statistiques des tâches terminées, recherche — sont stockées uniquement sur l’appareil de l’utilisateur, et le Fournisseur ne collecte ni ne conserve de données personnelles à cette fin.</li>
+    <li><b>Envoi de notifications</b> : les rappels et le résumé du matin définis par l’utilisateur sont programmés et affichés sur l’appareil lui-même. Tout se fait sur l’appareil et aucune information n’est envoyée à l’extérieur.</li>
+    <li><b>Identification de l’utilisateur et sauvegarde/restauration</b> : identification de l’utilisateur par la connexion Google, et sauvegarde et restauration des enregistrements via le Google Drive de l’utilisateur.</li>
+    <li><b>Saisie vocale (facultative)</b> : transformer en texte ce que l’utilisateur dit pendant qu’il maintient le bouton du micro enfoncé, puis l’insérer dans le champ de la tâche.</li>
+    <li><b>Publicité</b> : financer le fonctionnement du Service grâce à des bannières publicitaires Google AdMob.</li>
+  </ul>
+
+  <h2>Article 2 (Données collectées et mode de collecte)</h2>
+  <p><b>Données collectées</b></p>
+  <ul>
+    <li><b>[À la connexion, facultatif] Informations du compte Google</b> : adresse e-mail et identifiant du compte Google, obtenus via la connexion Google (OAuth). Toutes les fonctions sont utilisables sans limite sans se connecter ; la connexion n’est nécessaire que pour la sauvegarde et la restauration avec Google Drive.</li>
+    <li><b>[Créés par l’utilisateur dans l’app, stockés sur l’appareil] Enregistrements de tâches</b> : titres des tâches, sous-tâches, notes, dates et heures prévues, répétitions, rappels, périmètre personnel/travail, historique des tâches terminées, ordre de tri et réglages de l’app comme le thème et la langue. Ces informations sont conservées uniquement dans le stockage de l’appareil (SQLite) et ne sont pas envoyées aux serveurs du Fournisseur (le Fournisseur n’exploite pas de serveur propre).</li>
+    <li><b>[En cas d’utilisation de la sauvegarde] Données de sauvegarde Google Drive</b> : chaque fois que l’utilisateur touche « Sauvegarder maintenant », l’ensemble des enregistrements locaux ci-dessus est enregistré au format JSON dans l’espace réservé à l’app (appDataFolder) du Google Drive de l’utilisateur. L’app ne sauvegarde jamais automatiquement. Cet espace est privé — même l’utilisateur ne peut pas l’ouvrir depuis l’app Google Drive — et aucun tiers, y compris le Fournisseur, ne peut accéder à ces données.</li>
+    <li><b>[En cas d’utilisation de la saisie vocale, facultatif] Voix</b> : l’app n’écoute que pendant que l’utilisateur maintient le bouton du micro enfoncé. Le service de reconnaissance vocale de l’appareil (par ex. Google) transforme la parole en texte et peut, pour cela, envoyer l’audio à ses propres serveurs. Todit ne stocke ni n’envoie l’audio ; il insère seulement le texte obtenu dans le champ.</li>
+    <li><b>[Collectés automatiquement par le SDK publicitaire] Identifiant publicitaire et informations sur l’appareil</b> : le Service affiche des bannières via Google AdMob et, à cette occasion, Google peut collecter l’identifiant publicitaire, des informations sur l’appareil et des données de diagnostic liées aux affichages et aux clics. Le Fournisseur ne collecte ni ne conserve directement ces informations, qui sont traitées selon la politique de confidentialité de Google.</li>
+  </ul>
+  <p><b>Mode de collecte</b> : saisie directe par l’utilisateur pendant l’utilisation du Service (y compris la saisie vocale), association du compte Google (OAuth) et collecte automatique par le SDK publicitaire. Le Service n’accède pas aux autres données personnelles de l’appareil, comme les contacts, les messages, le journal d’appels, la position ou les photos.</p>
+
+  <h2>Article 3 (Traitement et durée de conservation)</h2>
+  <ul>
+    <li><b>Informations de connexion Google</b> : dissociées et détruites immédiatement lorsque l’utilisateur choisit « Se déconnecter » ou « Déconnecter le compte et supprimer les sauvegardes ».</li>
+    <li><b>Enregistrements stockés sur l’appareil</b> : supprimés de l’appareil dès que l’utilisateur désinstalle l’app. Comme rien n’est conservé sur des serveurs du Fournisseur, l’utilisateur peut tout supprimer lui-même.</li>
+    <li><b>Tâches supprimées</b> : pour pouvoir récupérer ce qui a été effacé par erreur, elles restent <b>30 jours</b> dans « Supprimées récemment », puis sont définitivement supprimées de l’appareil. L’utilisateur peut les effacer plus tôt avec « Réinitialiser les données » ou en désinstallant l’app.</li>
+    <li><b>Données de sauvegarde Google Drive</b> : <b>seule la sauvegarde la plus récente</b> est conservée dans le Drive de l’utilisateur ; chaque nouvelle sauvegarde remplace la précédente. Elle est supprimée immédiatement avec « Déconnecter le compte et supprimer les sauvegardes » ; si l’utilisateur choisit seulement « Se déconnecter », la sauvegarde reste et peut être restaurée après une nouvelle connexion.</li>
+    <li><b>Voix</b> : Todit ne la conserve pas. L’audio traité par le service de reconnaissance vocale de l’appareil relève des règles de ce fournisseur.</li>
+    <li><b>Identifiant publicitaire et autres données de diagnostic</b> : soumis aux règles et durées de conservation de Google.</li>
+  </ul>
+
+  <h2>Article 4 (Procédure et méthode de destruction)</h2>
+  <ul>
+    <li><b>Procédure</b> : lorsque l’utilisateur choisit « Se déconnecter », « Déconnecter le compte et supprimer les sauvegardes » ou « Réinitialiser les données », ou désinstalle l’app, l’opération est traitée immédiatement, sans étape d’approbation. La suppression d’une tâche donnée devient définitive automatiquement à la fin du délai de restauration de 30 jours.</li>
+    <li><b>Méthode</b> : les données locales sont effacées du stockage de l’appareil, et les fichiers de sauvegarde Google Drive sont supprimés via l’API Google Drive de sorte qu’ils ne puissent pas être récupérés.</li>
+  </ul>
+
+  <h2>Article 5 (Droits de l’utilisateur et modalités d’exercice)</h2>
+  <p>L’utilisateur peut exercer à tout moment les droits suivants directement dans les réglages de l’app.</p>
+  <ul>
+    <li><b>Exporter les enregistrements</b> (Paramètres &gt; Mes infos &gt; Exporter dans un fichier) : télécharger tous les enregistrements de l’appareil sous forme de fichier JSON pour les conserver ou les transférer</li>
+    <li><b>Supprimées récemment</b> (Bilan &gt; Archives &gt; Supprimées récemment) : restauration possible pendant 30 jours ; ensuite, suppression définitive</li>
+    <li><b>Supprimer la sauvegarde Drive</b> (Paramètres &gt; Mes infos &gt; Compte connecté &gt; « Déconnecter le compte et supprimer les sauvegardes ») : supprime la sauvegarde enregistrée dans Google Drive, révoque l’autorisation Drive accordée à l’app et dissocie la connexion Google</li>
+    <li><b>Se déconnecter</b> (Paramètres &gt; Mes infos &gt; Se déconnecter) : dissocie la connexion Google (la sauvegarde Drive et les enregistrements locaux de l’appareil sont conservés)</li>
+    <li><b>Réinitialiser les données</b> (Paramètres &gt; Mes infos &gt; Réinitialiser les données) : supprime toutes les tâches, sous-tâches et l’historique de cet appareil (la sauvegarde Drive est conservée)</li>
+    <li><b>Retirer l’autorisation des notifications</b> : à tout moment dans les réglages du système (seules les notifications s’arrêtent ; les autres fonctions restent disponibles)</li>
+    <li><b>Retirer l’autorisation du micro</b> : à tout moment dans les réglages du système (seule la saisie vocale s’arrête ; la saisie au clavier reste possible)</li>
+    <li><b>Désinstaller l’app</b> : tous les enregistrements locaux de l’appareil sont supprimés avec elle</li>
+  </ul>
+  <p>Toute autre question relative aux données personnelles peut être adressée à l’e-mail d’assistance (wwwtaekyu@gmail.com), et le Fournisseur y donnera suite sans délai. Le Service ne s’adresse pas aux enfants de moins de 14 ans et ne collecte pas sciemment de données personnelles d’enfants.</p>
+
+  <h2>Article 6 (Mesures de sécurité)</h2>
+  <ul>
+    <li><b>Mesures techniques</b> : les enregistrements de tâches sont stockés uniquement dans le stockage local de l’appareil (SQLite) et ne sont pas transmis à l’extérieur. L’authentification Google utilise le protocole OAuth standard de Google, et les échanges avec Google Drive sont chiffrés en TLS. Les sauvegardes sont stockées dans l’espace privé réservé à l’app (appDataFolder), même dans le Drive de l’utilisateur, ce qui empêche tout accès de tiers.</li>
+    <li><b>Mesures organisationnelles</b> : le nombre de personnes intervenant dans le traitement des données personnelles est réduit au minimum.</li>
+  </ul>
+
+  <h2>Article 7 (Sous-traitance et communication à des tiers)</h2>
+  <p>Le Fournisseur n’exploite pas de serveur propre stockant les données de tâches des utilisateurs. Il utilise les services ci-dessous pour chaque finalité, et les informations traitées dans chaque service relèvent de la politique de confidentialité de ce prestataire.</p>
+  <table>
+    <tr><th>Finalité</th><th>Service utilisé</th><th>Informations traitées</th></tr>
+    <tr><td>Connexion</td><td>Google Sign-In (Google LLC)</td><td>E-mail, identifiant du compte</td></tr>
+    <tr><td>Sauvegarde et restauration</td><td>Google Drive API — appDataFolder (Google LLC)</td><td>Tous les enregistrements locaux créés par l’utilisateur</td></tr>
+    <tr><td>Publicité</td><td>Google AdMob (Google LLC)</td><td>Identifiant publicitaire, informations sur l’appareil, données de diagnostic</td></tr>
+    <tr><td>Saisie vocale (uniquement en cas d’utilisation)</td><td>Service de reconnaissance vocale de l’appareil, choisi dans les réglages de l’appareil (généralement Google LLC)</td><td>Audio prononcé pendant la saisie vocale</td></tr>
+  </table>
+  <p>Règles de confidentialité de Google : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+  <h2>Article 8 (Autorisations de l’app)</h2>
+  <p>Le Service utilise les autorisations suivantes, chacune uniquement pour la finalité indiquée.</p>
+  <ul>
+    <li><b>Notifications</b> (POST_NOTIFICATIONS) : uniquement pour afficher les rappels et le résumé du matin définis par l’utilisateur. Demandée lors de la création du premier rappel ; sans elle, toutes les fonctions restent utilisables, sauf les notifications.</li>
+    <li><b>Alarmes exactes</b> (SCHEDULE_EXACT_ALARM) : fonction facultative pour prévenir à l’heure exacte. Elle ne fonctionne que si l’utilisateur l’active dans l’app et l’autorise dans l’écran du système ; sinon, les rappels arrivent à une heure approximative choisie par le système.</li>
+    <li><b>Démarrage terminé</b> (RECEIVE_BOOT_COMPLETED) : uniquement pour reprogrammer les rappels après un redémarrage de l’appareil.</li>
+    <li><b>Accès à Internet</b> (INTERNET) : uniquement pour la connexion Google, la sauvegarde et la restauration avec Google Drive et la publicité.</li>
+    <li><b>Micro</b> (RECORD_AUDIO, facultatif) : uniquement pour saisir des tâches à la voix. Demandée la première fois que le bouton du micro est enfoncé ; l’app n’écoute que tant que le bouton est maintenu. Sans elle, toutes les fonctions restent utilisables, sauf la saisie vocale.</li>
+  </ul>
+  <p>Le Service ne demande pas d’autorisation d’accès aux SMS, aux contacts, au journal d’appels, à la position, aux photos ni aux fichiers.</p>
+
+  <h2>Article 9 (Publicité)</h2>
+  <p>Le Service affiche des bannières publicitaires via Google AdMob. Des informations comme l’identifiant publicitaire peuvent être collectées pour personnaliser les annonces ; l’utilisateur peut désactiver la personnalisation ou réinitialiser l’identifiant dans les réglages de l’appareil (Paramètres &gt; Confidentialité &gt; Annonces). Dans les régions qui exigent un consentement spécifique, comme l’Espace économique européen (EEE) et le Royaume-Uni, le consentement est demandé via la plateforme de gestion du consentement de Google (UMP), et le choix peut être modifié à tout moment dans l’app, dans Paramètres &gt; À propos &gt; « Confidentialité des annonces ».</p>
+
+  <h2>Article 10 (Responsable de la protection des données)</h2>
+  <ul>
+    <li>Nom commercial (fournisseur du service) : TerryWi</li>
+    <li>Responsable de la protection des données : TerryWi (représentant)</li>
+    <li>Assistance / e-mail de contact : wwwtaekyu@gmail.com</li>
+  </ul>
+  <p>L’utilisateur peut adresser au responsable de la protection des données toute question, réclamation ou demande de réparation liée à la confidentialité découlant de l’utilisation de Todit.</p>
+
+  <h2>Article 11 (Modification de la présente politique)</h2>
+  <p>La présente Politique de confidentialité s’applique à partir du 4 octobre 2026. En cas d’ajout, de suppression ou de modification, le Fournisseur en informera à partir de 7 jours avant l’entrée en vigueur du changement, par des avis dans le Service ou dans ce document.</p>
+  <p>Le texte original de la présente Politique est en coréen. Les traductions en anglais et dans 10 autres langues sont fournies pour plus de commodité ; en cas de divergence, l’original coréen prévaut.</p>
+  <p>Publiée : 27 septembre 2026<br>En vigueur : 4 octobre 2026</p>
+  <p>Historique des révisions : première version le 25 septembre 2026 · révision publiée le 27 septembre 2026, en vigueur le 4 octobre 2026 (une seule sauvegarde Drive, sauvegarde manuelle uniquement ; saisie vocale et autorisation du micro ; chemins des menus de l’app)</p>
+
+  <p class="contact">Contact : wwwtaekyu@gmail.com</p>
+</div>
+</body>
+</html>
