@@ -31,6 +31,7 @@
     <li><b>[Saat masuk, opsional] Informasi Akun Google</b>: alamat email dan ID Akun Google, diperoleh melalui masuk dengan Google (OAuth). Semua fungsi dapat digunakan tanpa batas tanpa masuk; masuk hanya diperlukan untuk pencadangan dan pemulihan dengan Google Drive.</li>
     <li><b>[Dibuat pengguna di aplikasi, disimpan di perangkat] Catatan tugas</b>: judul tugas, subtugas, catatan, tanggal dan waktu rencana, pengulangan, pengingat, lingkup pribadi/kerja, riwayat tugas selesai, urutan, serta setelan aplikasi seperti tema dan bahasa. Informasi ini hanya disimpan di penyimpanan perangkat (SQLite) dan tidak dikirim ke server Penyedia (Penyedia tidak mengoperasikan server sendiri).</li>
     <li><b>[Saat menggunakan pencadangan] Data cadangan Google Drive</b>: setiap kali pengguna mengetuk “Cadangkan sekarang”, seluruh catatan lokal di atas disimpan dalam format JSON di ruang khusus aplikasi (appDataFolder) di Google Drive milik pengguna. Aplikasi tidak pernah mencadangkan secara otomatis. Ruang ini bersifat privat — bahkan pengguna sendiri tidak dapat membukanya dari aplikasi Google Drive — dan tidak ada pihak ketiga, termasuk Penyedia, yang dapat mengakses data ini.</li>
+    <li><b>[Cadangan perangkat Android] Data aplikasi</b>: catatan lokal di atas dan setelan aplikasi dapat disertakan dalam cadangan perangkat Android (akun Google). Ini adalah fitur sistem operasi Android: sistem operasi yang menentukan kapan pencadangan dan pemulihan terjadi, dan Penyedia tidak dapat mengakses data ini. Pengguna dapat menonaktifkannya di setelan cadangan perangkat.</li>
     <li><b>[Saat menggunakan input suara, opsional] Suara</b>: aplikasi hanya mendengarkan selama pengguna menahan tombol mikrofon. Layanan pengenalan ucapan perangkat (mis. Google) mengubah ucapan menjadi teks dan untuk itu dapat mengirim audio ke servernya sendiri. Todit tidak menyimpan atau mengirim audio; Todit hanya memasukkan teks hasilnya ke kolom.</li>
     <li><b>[Dikumpulkan otomatis oleh SDK iklan] ID iklan dan informasi perangkat</b>: Layanan menampilkan iklan banner melalui Google AdMob, dan dalam prosesnya Google dapat mengumpulkan ID iklan, informasi perangkat, serta data diagnostik terkait tayangan dan klik. Penyedia tidak mengumpulkan atau menyimpan informasi ini secara langsung; informasi ini diproses sesuai kebijakan privasi Google.</li>
   </ul>
@@ -41,7 +42,8 @@
     <li><b>Informasi masuk Google</b>: segera diputus dan dimusnahkan saat pengguna memilih “Keluar” atau “Putuskan akun &amp; hapus cadangan”.</li>
     <li><b>Catatan di perangkat</b>: dihapus dari perangkat begitu pengguna mencopot aplikasi. Karena tidak ada yang disimpan di server Penyedia, pengguna dapat menghapus semuanya sendiri sepenuhnya.</li>
     <li><b>Tugas yang dihapus</b>: agar yang terhapus tidak sengaja bisa dikembalikan, tugas disimpan di “Baru dihapus” <b>selama 30 hari</b>, lalu dihapus permanen dari perangkat. Pengguna dapat menghapusnya lebih awal dengan “Reset data” atau mencopot aplikasi.</li>
-    <li><b>Data cadangan Google Drive</b>: di Drive pengguna hanya disimpan <b>cadangan terbaru</b>; setiap cadangan baru menggantikan yang sebelumnya. Cadangan langsung dihapus dengan “Putuskan akun &amp; hapus cadangan”; jika pengguna hanya memilih “Keluar”, cadangan tetap ada dan dapat dipulihkan setelah masuk kembali.</li>
+    <li><b>Data cadangan Google Drive</b>: di Drive pengguna disimpan <b>hingga 3 cadangan terbaru</b>; jika cadangan baru membuat jumlahnya lebih dari 3, cadangan terlama dihapus. Pengguna dapat menghapus cadangan satu per satu dari daftar “Pulihkan dari Drive”, dan “Putuskan akun &amp; hapus cadangan” langsung menghapus semua cadangan; jika pengguna hanya memilih “Keluar”, cadangan tetap ada dan dapat dipulihkan setelah masuk kembali.</li>
+    <li><b>Cadangan perangkat Android</b>: salinan dalam cadangan perangkat Android (akun Google) disimpan dan dihapus sesuai kebijakan pencadangan sistem operasi (Google).</li>
     <li><b>Suara</b>: Todit tidak menyimpannya. Audio yang diproses layanan pengenalan ucapan perangkat tunduk pada kebijakan penyedia layanan tersebut.</li>
     <li><b>ID iklan dan data diagnostik lainnya</b>: tunduk pada kebijakan dan masa penyimpanan Google.</li>
   </ul>
@@ -57,7 +59,8 @@
   <ul>
     <li><b>Ekspor catatan</b> (Setelan &gt; Info saya &gt; Ekspor ke file): mengunduh semua catatan di perangkat sebagai file JSON untuk disimpan atau dipindahkan</li>
     <li><b>Baru dihapus</b> (Tinjauan &gt; Arsip &gt; Baru dihapus): memulihkan dalam 30 hari; setelah itu dihapus permanen</li>
-    <li><b>Menghapus cadangan Drive</b> (Setelan &gt; Info saya &gt; Akun terhubung &gt; “Putuskan akun &amp; hapus cadangan”): menghapus cadangan di Google Drive, mencabut izin Drive yang diberikan ke aplikasi, dan memutus masuk Google</li>
+    <li><b>Menghapus satu cadangan Drive</b> (Setelan &gt; Info saya &gt; Pulihkan dari Drive &gt; ikon hapus di sebelah kanan cadangan): hanya menghapus file cadangan yang dipilih</li>
+    <li><b>Menghapus cadangan Drive</b> (Setelan &gt; Info saya &gt; Akun terhubung &gt; “Putuskan akun &amp; hapus cadangan”): menghapus semua cadangan di Google Drive, mencabut izin Drive yang diberikan ke aplikasi, dan memutus masuk Google</li>
     <li><b>Keluar</b> (Setelan &gt; Info saya &gt; Keluar): memutus masuk Google (cadangan Drive dan catatan lokal di perangkat tetap ada)</li>
     <li><b>Reset data</b> (Setelan &gt; Info saya &gt; Reset data): menghapus semua tugas, subtugas, dan riwayat di perangkat ini (cadangan Drive tetap ada)</li>
     <li><b>Mencabut izin notifikasi</b>: kapan saja dari setelan sistem (hanya notifikasi yang berhenti; fungsi lain tetap berjalan)</li>
@@ -68,7 +71,7 @@
 
   <h2>Pasal 6 (Langkah keamanan)</h2>
   <ul>
-    <li><b>Langkah teknis</b>: catatan tugas hanya disimpan di penyimpanan lokal perangkat (SQLite) dan tidak dikirim ke luar. Autentikasi Google menggunakan alur OAuth standar Google, dan komunikasi dengan Google Drive dienkripsi dengan TLS. Cadangan disimpan di ruang privat khusus aplikasi (appDataFolder) bahkan di dalam Drive pengguna, sehingga pihak ketiga tidak dapat mengaksesnya.</li>
+    <li><b>Langkah teknis</b>: catatan tugas disimpan di penyimpanan lokal perangkat (SQLite) dan tidak dikirim ke luar, kecuali saat pengguna membuat cadangan Drive atau saat catatan disertakan dalam cadangan perangkat Android. Autentikasi Google menggunakan alur OAuth standar Google, dan komunikasi dengan Google Drive dienkripsi dengan TLS. Cadangan disimpan di ruang privat khusus aplikasi (appDataFolder) bahkan di dalam Drive pengguna, sehingga pihak ketiga tidak dapat mengaksesnya.</li>
     <li><b>Langkah administratif</b>: jumlah orang yang terlibat dalam pemrosesan data pribadi dijaga seminimal mungkin.</li>
   </ul>
 
@@ -109,7 +112,7 @@
   <p>Kebijakan Privasi ini berlaku mulai 4 Oktober 2026. Jika ada penambahan, penghapusan, atau perubahan isi, Penyedia akan memberi tahu mulai 7 hari sebelum perubahan berlaku, melalui pemberitahuan di Layanan atau di dokumen ini.</p>
   <p>Naskah asli Kebijakan ini berbahasa Korea. Terjemahan ke bahasa Inggris dan 10 bahasa lain disediakan untuk kemudahan; jika terjemahan berbeda dengan naskah asli, naskah asli berbahasa Korea yang berlaku.</p>
   <p>Diumumkan: 27 September 2026<br>Berlaku: 4 Oktober 2026</p>
-  <p>Riwayat revisi: versi pertama 25 September 2026 · revisi diumumkan 27 September 2026, berlaku 4 Oktober 2026 (hanya satu cadangan Drive dan hanya pencadangan manual; input suara dan izin mikrofon; jalur menu aplikasi)</p>
+  <p>Riwayat revisi: versi pertama 25 September 2026 · revisi diumumkan 27 September 2026, berlaku 4 Oktober 2026 (hingga 3 cadangan Drive yang dapat dihapus satu per satu dan hanya pencadangan manual; cadangan perangkat Android; input suara dan izin mikrofon; jalur menu aplikasi)</p>
 
   <p class="contact">Kontak: wwwtaekyu@gmail.com</p>
 </div>

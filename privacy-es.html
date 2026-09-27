@@ -31,6 +31,7 @@
     <li><b>[Al iniciar sesión, opcional] Información de la cuenta de Google</b>: dirección de correo electrónico e identificador de la cuenta de Google, obtenidos mediante el inicio de sesión con Google (OAuth). Todas las funciones se pueden usar sin limitación sin iniciar sesión; el inicio de sesión solo es necesario para usar la copia de seguridad y restauración con Google Drive.</li>
     <li><b>[Creados por el usuario al usar la app, guardados en el dispositivo] Registros de tareas</b>: títulos de tareas, subtareas, notas, fechas y horas previstas, repeticiones, recordatorios, ámbito personal/trabajo, historial de completadas, orden y ajustes de la app como tema y idioma. Esta información se guarda solo en el almacenamiento del dispositivo (SQLite) y no se envía a servidores del Proveedor (el Proveedor no tiene servidor propio).</li>
     <li><b>[Al usar la copia de seguridad] Datos de copia en Google Drive</b>: cada vez que el usuario pulsa «Hacer copia ahora», todos los registros locales anteriores se guardan en formato JSON en el espacio exclusivo de la app (appDataFolder) dentro del Google Drive del propio usuario. La app nunca hace copias automáticas. Este espacio es privado —ni siquiera el usuario puede abrirlo desde la app de Google Drive— y ningún tercero, incluido el Proveedor, puede acceder a estos datos.</li>
+    <li><b>[Copia del dispositivo Android] Datos de la app</b>: los registros locales anteriores y los ajustes de la app pueden incluirse en la copia de seguridad del dispositivo Android (cuenta de Google). Es una función del sistema operativo Android: el sistema operativo decide cuándo se hacen las copias y las restauraciones, y el Proveedor no puede acceder a estos datos. El usuario puede desactivarla en los ajustes de copia de seguridad del dispositivo.</li>
     <li><b>[Al usar la entrada por voz, opcional] Voz</b>: la app solo escucha mientras el usuario mantiene pulsado el botón del micrófono. El servicio de reconocimiento de voz del dispositivo (p. ej., Google) convierte la voz en texto y, para ello, puede enviar el audio a sus propios servidores. Todit no guarda ni envía el audio; solo introduce el texto resultante en el campo.</li>
     <li><b>[Recogidos automáticamente por el SDK de publicidad] Identificador de publicidad e información del dispositivo</b>: el Servicio muestra anuncios de banner mediante Google AdMob y, en ese proceso, Google puede recoger el identificador de publicidad (ID de publicidad), información del dispositivo y datos de diagnóstico sobre impresiones y clics. El Proveedor no recoge ni conserva directamente esta información, que se trata según la política de privacidad de Google.</li>
   </ul>
@@ -41,7 +42,8 @@
     <li><b>Información de inicio de sesión de Google</b>: se desvincula y elimina de inmediato cuando el usuario usa «Cerrar sesión» o «Desconectar cuenta y eliminar copias».</li>
     <li><b>Registros guardados en el dispositivo</b>: se eliminan del dispositivo en cuanto el usuario desinstala la app. Como no se conservan en servidores del Proveedor, el usuario puede eliminarlos por completo por sí mismo.</li>
     <li><b>Tareas eliminadas</b>: para poder recuperar lo borrado por error, se conservan en «Eliminadas recientemente» <b>durante 30 días</b> y después se eliminan definitivamente del dispositivo. El usuario puede borrarlas antes con «Restablecer datos» o desinstalando la app.</li>
-    <li><b>Datos de copia en Google Drive</b>: en el Drive del usuario se conserva <b>solo la copia más reciente</b>; cada nueva copia sustituye a la anterior. Se elimina de inmediato con «Desconectar cuenta y eliminar copias»; si el usuario solo usa «Cerrar sesión», la copia se mantiene y puede restaurarse al volver a iniciar sesión.</li>
+    <li><b>Datos de copia en Google Drive</b>: en el Drive del usuario se conservan <b>hasta las 3 copias más recientes</b>; si una nueva copia supera las 3, se elimina la más antigua. El usuario puede eliminar copias una a una desde la lista «Restaurar desde Drive», y «Desconectar cuenta y eliminar copias» elimina todas las copias de inmediato; si el usuario solo usa «Cerrar sesión», las copias se mantienen y pueden restaurarse al volver a iniciar sesión.</li>
+    <li><b>Copia del dispositivo Android</b>: las copias incluidas en la copia de seguridad del dispositivo Android (cuenta de Google) se conservan y eliminan según la política de copias del sistema operativo (Google).</li>
     <li><b>Voz</b>: Todit no la conserva. El audio tratado por el servicio de reconocimiento de voz del dispositivo se rige por las políticas de ese proveedor.</li>
     <li><b>Identificador de publicidad y otros datos de diagnóstico</b>: se rigen por las políticas y plazos de conservación de Google.</li>
   </ul>
@@ -57,7 +59,8 @@
   <ul>
     <li><b>Exportar registros</b> (Ajustes &gt; Mi información &gt; Exportar a un archivo): descargar todos los registros del dispositivo como archivo JSON para guardarlos o trasladarlos</li>
     <li><b>Eliminadas recientemente</b> (Repaso &gt; Archivo &gt; Eliminadas recientemente): restaurar en un plazo de 30 días; después se eliminan definitivamente</li>
-    <li><b>Eliminar la copia de Drive</b> (Ajustes &gt; Mi información &gt; Cuenta conectada &gt; «Desconectar cuenta y eliminar copias»): elimina la copia guardada en Google Drive, revoca el permiso de Drive concedido a la app y desvincula el inicio de sesión de Google</li>
+    <li><b>Eliminar una copia de Drive</b> (Ajustes &gt; Mi información &gt; Restaurar desde Drive &gt; icono de eliminar a la derecha de una copia): elimina solo el archivo de copia elegido</li>
+    <li><b>Eliminar la copia de Drive</b> (Ajustes &gt; Mi información &gt; Cuenta conectada &gt; «Desconectar cuenta y eliminar copias»): elimina todas las copias guardadas en Google Drive, revoca el permiso de Drive concedido a la app y desvincula el inicio de sesión de Google</li>
     <li><b>Cerrar sesión</b> (Ajustes &gt; Mi información &gt; Cerrar sesión): desvincula el inicio de sesión de Google (la copia de Drive y los registros locales del dispositivo se mantienen)</li>
     <li><b>Restablecer datos</b> (Ajustes &gt; Mi información &gt; Restablecer datos): elimina todas las tareas, subtareas e historial de este dispositivo (la copia de Drive se mantiene)</li>
     <li><b>Retirar el permiso de notificaciones</b>: en cualquier momento desde los ajustes del sistema (solo se dejan de mostrar notificaciones; el resto de funciones sigue funcionando)</li>
@@ -68,7 +71,7 @@
 
   <h2>Artículo 6 (Medidas de seguridad)</h2>
   <ul>
-    <li><b>Medidas técnicas</b>: los registros de tareas se guardan solo en el almacenamiento local del dispositivo (SQLite) y no se transmiten al exterior. La autenticación de Google usa el flujo estándar OAuth de Google y la comunicación con Google Drive se cifra con TLS. Las copias se guardan en el espacio privado exclusivo de la app (appDataFolder) incluso dentro del Drive del usuario, lo que impide el acceso de terceros.</li>
+    <li><b>Medidas técnicas</b>: los registros de tareas se guardan en el almacenamiento local del dispositivo (SQLite) y no se transmiten al exterior, salvo cuando el usuario hace una copia en Drive o se incluyen en la copia del dispositivo Android. La autenticación de Google usa el flujo estándar OAuth de Google y la comunicación con Google Drive se cifra con TLS. Las copias se guardan en el espacio privado exclusivo de la app (appDataFolder) incluso dentro del Drive del usuario, lo que impide el acceso de terceros.</li>
     <li><b>Medidas administrativas</b>: se reduce al mínimo el número de personas que intervienen en el tratamiento de datos personales.</li>
   </ul>
 
@@ -109,7 +112,7 @@
   <p>Esta Política de privacidad se aplica desde el 4 de octubre de 2026. Si se añade, elimina o modifica contenido, el Proveedor lo avisará desde 7 días antes de que el cambio entre en vigor, mediante avisos en el Servicio o en este documento.</p>
   <p>El texto original de esta Política está en coreano. Las traducciones al inglés y a otros 10 idiomas se ofrecen por comodidad; si una traducción difiere del original, prevalece el original en coreano.</p>
   <p>Publicada: 27 de septiembre de 2026<br>En vigor: 4 de octubre de 2026</p>
-  <p>Historial de revisiones: primera versión el 25 de septiembre de 2026 · revisión publicada el 27 de septiembre de 2026, en vigor desde el 4 de octubre de 2026 (se conserva una sola copia en Drive y solo copia manual; entrada por voz y permiso del micrófono; rutas de menú de la app)</p>
+  <p>Historial de revisiones: primera versión el 25 de septiembre de 2026 · revisión publicada el 27 de septiembre de 2026, en vigor desde el 4 de octubre de 2026 (se conservan hasta 3 copias en Drive, que pueden eliminarse una a una, y solo copia manual; copia del dispositivo Android; entrada por voz y permiso del micrófono; rutas de menú de la app)</p>
 
   <p class="contact">Contacto: wwwtaekyu@gmail.com</p>
 </div>

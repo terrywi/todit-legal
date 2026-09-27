@@ -18,7 +18,8 @@
   <h2>1. Menghapus di aplikasi (langsung)</h2>
   <ul>
     <li><b>Menghapus tugas</b>: geser baris ke kiri lalu pilih “Hapus”. Tugas disimpan 30 hari di “Baru dihapus” agar bisa dipulihkan, lalu dihapus permanen dari perangkat.</li>
-    <li><b>Menghapus cadangan Drive</b>: Setelan &gt; Info saya &gt; Akun terhubung &gt; “Putuskan akun &amp; hapus cadangan”. Cadangan di folder khusus aplikasi (appDataFolder) di Google Drive pengguna langsung dihapus melalui Google Drive API, izin Drive yang diberikan ke aplikasi dicabut, dan masuk Google diputus.</li>
+    <li><b>Menghapus cadangan Drive</b>: Setelan &gt; Info saya &gt; Akun terhubung &gt; “Putuskan akun &amp; hapus cadangan”. Semua cadangan di folder khusus aplikasi (appDataFolder) di Google Drive pengguna langsung dihapus melalui Google Drive API, izin Drive yang diberikan ke aplikasi dicabut, dan masuk Google diputus.</li>
+    <li><b>Menghapus satu cadangan Drive</b>: Setelan &gt; Info saya &gt; “Pulihkan dari Drive” &gt; ikon hapus di sebelah kanan cadangan. Hanya file cadangan yang dipilih yang langsung dihapus melalui Google Drive API.</li>
     <li><b>Keluar</b>: Setelan &gt; Info saya &gt; “Keluar”. Masuk Google langsung diputus. Cadangan Drive tetap ada dan dapat dipulihkan setelah masuk kembali.</li>
     <li><b>Menghapus catatan di perangkat ini</b>: Setelan &gt; Info saya &gt; “Reset data”. Semua tugas, subtugas, dan riwayat di perangkat ini langsung dihapus. Cadangan Drive tetap ada.</li>
     <li><b>Mencopot aplikasi</b>: semua catatan lokal di perangkat, termasuk yang masih ada di “Baru dihapus”, ikut dihapus.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Cadangan Google Drive (salinan JSON dari catatan lokal)</td>
       <td>appDataFolder di Google Drive pengguna</td>
-      <td>Langsung dengan “Putuskan akun &amp; hapus cadangan”</td>
-      <td>Tidak ada (hanya cadangan terbaru yang disimpan; cadangan hanya dibuat saat pengguna mengetuk “Cadangkan sekarang”, tidak pernah otomatis)</td>
+      <td>Langsung dengan ikon hapus di daftar “Pulihkan dari Drive” (satu cadangan) atau “Putuskan akun &amp; hapus cadangan” (semua)</td>
+      <td>Tidak ada (hingga 3 cadangan terbaru yang disimpan; cadangan hanya dibuat saat pengguna mengetuk “Cadangkan sekarang”, dan aplikasi tidak pernah mencadangkan otomatis)</td>
+    </tr>
+    <tr>
+      <td>Data aplikasi dalam cadangan perangkat Android</td>
+      <td>Cadangan perangkat Android di akun Google pengguna (Google)</td>
+      <td>Menonaktifkannya di setelan cadangan perangkat atau menghapus cadangan perangkat dari akun Google</td>
+      <td>Sesuai kebijakan sistem operasi (Google); sistem operasi yang menentukan kapan pencadangan dan pemulihan terjadi</td>
     </tr>
     <tr>
       <td>Informasi masuk Google (email, ID akun)</td>

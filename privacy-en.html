@@ -31,6 +31,7 @@
     <li><b>[When signing in, optional] Google account information</b>: Email address and Google account identifier, collected via Google Sign-In (OAuth). All features can be used without limitation without signing in; sign-in is required only to use the Google Drive backup/restore feature.</li>
     <li><b>[Created by the user while using the app, stored locally on the device] To-do records</b>: Task titles, subtasks, notes, planned dates and times, repetition settings, reminder settings, personal/work scope, completion history, sort order, and app settings such as skin and language. This information is kept only in the device’s storage (SQLite) and is not transmitted to the Provider’s servers (the Provider does not operate its own separate server).</li>
     <li><b>[When using the backup feature] Google Drive backup data</b>: Each time the user taps “Back up now”, the entire local record above is stored in JSON form in the app-specific storage area (appDataFolder) within the user’s own Google Drive. The app never backs up automatically. This area is a private area that even the user cannot open directly from the Google Drive app screen, and no third party, including the Provider, can access this data.</li>
+    <li><b>[Android device backup] App data</b>: The local records above and the app settings may be included in the Android device backup (Google account). This is a feature of the Android operating system: the operating system decides when backups and restores happen, and the Provider cannot access this data. The user can turn it off in the device’s backup settings.</li>
     <li><b>[Collected automatically via the advertising SDK] Advertising identifier and device information</b>: The Service displays banner ads via Google AdMob, and in this process the advertising identifier (Ad ID), device information, and diagnostic data related to ad impressions/clicks may be collected by Google. This is not information the Provider collects or retains directly, and it is processed in accordance with Google’s privacy policy.</li>
     <li><b>[When using voice input, optional] Voice</b>: The app listens only while the user holds the microphone button. The device’s speech recognition service (e.g. Google) turns speech into text and may send audio to its own servers to do so. Todit does not store or send audio; it only puts the resulting text into the input field.</li>
   </ul>
@@ -41,7 +42,8 @@
     <li><b>Google sign-in information</b>: Destroyed and disconnected immediately when the user uses “Sign out” or “Disconnect account &amp; delete backups”.</li>
     <li><b>Records stored locally on the device</b>: Deleted together with the app as soon as the user uninstalls it. Because nothing is retained separately on the Provider’s servers, users can delete their data completely on their own.</li>
     <li><b>Deleted tasks</b>: Kept in “Recently deleted” for <b>30 days</b> so that items removed by mistake can be restored, then permanently deleted from the device. Users can remove them sooner with “Reset data” or by uninstalling the app.</li>
-    <li><b>Google Drive backup data</b>: <b>Only the most recent backup</b> is kept in the user’s own Drive; a new backup replaces the previous one. It is deleted immediately when the user uses “Disconnect account &amp; delete backups”. “Sign out” alone leaves the backup in place, so it can be restored after signing in again.</li>
+    <li><b>Google Drive backup data</b>: <b>Up to the 3 most recent backups</b> are kept in the user’s own Drive; when a new backup makes more than 3, the oldest one is deleted. The user can delete backups one at a time from the “Restore from Drive” list, and “Disconnect account &amp; delete backups” deletes all backups immediately. “Sign out” alone leaves the backups in place, so they can be restored after signing in again.</li>
+    <li><b>Android device backup</b>: Copies included in the Android device backup (Google account) are kept and deleted according to the backup policy of the operating system (Google).</li>
     <li><b>Voice</b>: Not retained by Todit. Audio processed by the device’s speech recognition service is subject to that service provider’s policies.</li>
     <li><b>Advertising identifier and other diagnostic information</b>: Subject to Google’s relevant policies and retention periods.</li>
   </ul>
@@ -57,7 +59,8 @@
   <ul>
     <li><b>Export records</b> (Settings &gt; My info &gt; Export to file): Download all records stored on the device as a JSON file to keep or move elsewhere</li>
     <li><b>Recently deleted</b> (Review &gt; Archive &gt; Recently deleted): Restore within 30 days; permanently deleted afterwards</li>
-    <li><b>Delete Drive backups</b> (Settings &gt; My info &gt; Connected account &gt; “Disconnect account &amp; delete backups”): Delete the backup stored in Google Drive, revoke the Drive permission granted to the app, and disconnect the Google sign-in</li>
+    <li><b>Delete one Drive backup</b> (Settings &gt; My info &gt; Restore from Drive &gt; delete icon to the right of a backup): Delete only the chosen backup file</li>
+    <li><b>Delete Drive backups</b> (Settings &gt; My info &gt; Connected account &gt; “Disconnect account &amp; delete backups”): Delete all backups stored in Google Drive, revoke the Drive permission granted to the app, and disconnect the Google sign-in</li>
     <li><b>Sign out</b> (Settings &gt; My info &gt; Sign out): Disconnect the Google sign-in (the Drive backup and local records on the device are kept as they are)</li>
     <li><b>Reset data</b> (Settings &gt; My info &gt; Reset data): Delete all tasks, subtasks and history stored on this device (the Drive backup is kept)</li>
     <li><b>Revoke notification permission</b>: Can be revoked at any time in system settings (only notification delivery stops; recording and management features continue to work)</li>
@@ -68,7 +71,7 @@
 
   <h2>Article 6 (Measures to Ensure Security)</h2>
   <ul>
-    <li><b>Technical measures</b>: To-do records are stored only in the device’s local storage (SQLite) and are not transmitted externally. Google account authentication uses Google’s standard OAuth flow, and communication with Google Drive is encrypted with TLS. Backup data is stored in the app-specific private area (appDataFolder) even within the user’s own Drive, blocking third-party access.</li>
+    <li><b>Technical measures</b>: To-do records are stored in the device’s local storage (SQLite) and are not transmitted externally, except when the user runs a Drive backup or they are included in the Android device backup. Google account authentication uses Google’s standard OAuth flow, and communication with Google Drive is encrypted with TLS. Backup data is stored in the app-specific private area (appDataFolder) even within the user’s own Drive, blocking third-party access.</li>
     <li><b>Administrative measures</b>: The number of personnel involved in processing personal information is kept to a minimum.</li>
   </ul>
 
@@ -109,7 +112,7 @@
   <p>This Privacy Policy applies from 4 October 2026. Where content is added, deleted or modified, the Provider will give notice from 7 days before the change takes effect, through in-service notices or this document.</p>
   <p>The Korean text of this Policy is the original. Translations into English and 10 other languages are provided for convenience; if a translation differs from the original, the Korean original prevails.</p>
   <p>Published: 27 September 2026<br>Effective: 4 October 2026</p>
-  <p>Revision history: first published 25 September 2026 · revision published 27 September 2026, effective 4 October 2026 (one Drive backup kept, manual backup only; voice input and microphone permission; app menu paths)</p>
+  <p>Revision history: first published 25 September 2026 · revision published 27 September 2026, effective 4 October 2026 (up to 3 Drive backups kept and deletable one at a time, manual backup only; Android device backup; voice input and microphone permission; app menu paths)</p>
 
   <p class="contact">Contact: wwwtaekyu@gmail.com</p>
 </div>

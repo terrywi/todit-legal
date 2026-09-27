@@ -18,7 +18,8 @@
   <h2>1. Delete in the app (processed immediately)</h2>
   <ul>
     <li><b>Delete a task</b> — swipe the row left and choose “Delete”: the item is kept in “Recently deleted” for 30 days so it can be restored, then permanently deleted from the device.</li>
-    <li><b>Delete Drive backups</b> — Settings &gt; My info &gt; Connected account &gt; “Disconnect account &amp; delete backups”: the backup stored in the app-specific folder (appDataFolder) of the user’s own Google Drive is deleted immediately via the Google Drive API, the Drive permission granted to the app is revoked, and the Google sign-in is disconnected.</li>
+    <li><b>Delete Drive backups</b> — Settings &gt; My info &gt; Connected account &gt; “Disconnect account &amp; delete backups”: all backups stored in the app-specific folder (appDataFolder) of the user’s own Google Drive are deleted immediately via the Google Drive API, the Drive permission granted to the app is revoked, and the Google sign-in is disconnected.</li>
+    <li><b>Delete one Drive backup</b> — Settings &gt; My info &gt; “Restore from Drive” &gt; delete icon to the right of a backup: only the chosen backup file is deleted immediately via the Google Drive API.</li>
     <li><b>Sign out</b> — Settings &gt; My info &gt; “Sign out”: the Google sign-in is disconnected immediately. The Drive backup stays, so it can be restored after signing in again.</li>
     <li><b>Delete records on this device</b> — Settings &gt; My info &gt; “Reset data”: all tasks, subtasks and history stored on this device are deleted immediately. The Drive backup stays.</li>
     <li><b>Uninstall the app</b>: all local records stored on the device, including anything still in “Recently deleted”, are deleted along with it.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Google Drive backup files (JSON copy of local records)</td>
       <td>The user’s own Google Drive appDataFolder</td>
-      <td>Immediately on “Disconnect account &amp; delete backups”</td>
-      <td>None (only the most recent backup is kept; backups are made only when the user taps “Back up now”, never automatically)</td>
+      <td>Immediately with the delete icon in the “Restore from Drive” list (one backup) or “Disconnect account &amp; delete backups” (all)</td>
+      <td>None (up to the 3 most recent backups are kept; backups are made only when the user taps “Back up now”, and the app never backs up automatically)</td>
+    </tr>
+    <tr>
+      <td>App data included in the Android device backup</td>
+      <td>The Android device backup of the user’s Google account (Google)</td>
+      <td>Turn it off in the device’s backup settings, or delete the device backup from the Google account</td>
+      <td>Per the operating system (Google) policy; the operating system decides when backups and restores happen</td>
     </tr>
     <tr>
       <td>Google sign-in information (email, account identifier)</td>

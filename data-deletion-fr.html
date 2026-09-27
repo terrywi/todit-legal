@@ -18,7 +18,8 @@
   <h2>1. Supprimer dans l’app (immédiat)</h2>
   <ul>
     <li><b>Supprimer une tâche</b> : balayez la ligne vers la gauche et choisissez « Supprimer ». La tâche reste 30 jours dans « Supprimées récemment » pour pouvoir être restaurée, puis elle est définitivement supprimée de l’appareil.</li>
-    <li><b>Supprimer la sauvegarde Drive</b> : Paramètres &gt; Mes infos &gt; Compte connecté &gt; « Déconnecter le compte et supprimer les sauvegardes ». La sauvegarde enregistrée dans le dossier réservé à l’app (appDataFolder) du Google Drive de l’utilisateur est supprimée immédiatement via l’API Google Drive, l’autorisation Drive accordée à l’app est révoquée et la connexion Google est dissociée.</li>
+    <li><b>Supprimer la sauvegarde Drive</b> : Paramètres &gt; Mes infos &gt; Compte connecté &gt; « Déconnecter le compte et supprimer les sauvegardes ». Toutes les sauvegardes enregistrées dans le dossier réservé à l’app (appDataFolder) du Google Drive de l’utilisateur sont supprimées immédiatement via l’API Google Drive, l’autorisation Drive accordée à l’app est révoquée et la connexion Google est dissociée.</li>
+    <li><b>Supprimer une sauvegarde Drive</b> : Paramètres &gt; Mes infos &gt; « Restaurer depuis Drive » &gt; icône de suppression à droite d’une sauvegarde. Seul le fichier de sauvegarde choisi est supprimé immédiatement via l’API Google Drive.</li>
     <li><b>Se déconnecter</b> : Paramètres &gt; Mes infos &gt; « Se déconnecter ». La connexion Google est dissociée immédiatement. La sauvegarde Drive est conservée et peut être restaurée après une nouvelle connexion.</li>
     <li><b>Supprimer les enregistrements de cet appareil</b> : Paramètres &gt; Mes infos &gt; « Réinitialiser les données ». Toutes les tâches, sous-tâches et l’historique de cet appareil sont supprimés immédiatement. La sauvegarde Drive est conservée.</li>
     <li><b>Désinstaller l’app</b> : tous les enregistrements locaux de l’appareil, y compris ce qui se trouve encore dans « Supprimées récemment », sont supprimés avec elle.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Sauvegarde Google Drive (copie JSON des enregistrements locaux)</td>
       <td>appDataFolder du Google Drive de l’utilisateur</td>
-      <td>Immédiatement avec « Déconnecter le compte et supprimer les sauvegardes »</td>
-      <td>Aucune (seule la sauvegarde la plus récente est conservée ; elle n’est créée que lorsque l’utilisateur touche « Sauvegarder maintenant », jamais automatiquement)</td>
+      <td>Immédiatement avec l’icône de suppression de la liste « Restaurer depuis Drive » (une sauvegarde) ou « Déconnecter le compte et supprimer les sauvegardes » (toutes)</td>
+      <td>Aucune (jusqu’aux 3 sauvegardes les plus récentes sont conservées ; elles ne sont créées que lorsque l’utilisateur touche « Sauvegarder maintenant », et l’app ne sauvegarde jamais automatiquement)</td>
+    </tr>
+    <tr>
+      <td>Données de l’app incluses dans la sauvegarde de l’appareil Android</td>
+      <td>Sauvegarde de l’appareil Android du compte Google de l’utilisateur (Google)</td>
+      <td>La désactiver dans les paramètres de sauvegarde de l’appareil ou supprimer la sauvegarde de l’appareil depuis le compte Google</td>
+      <td>Selon la politique du système d’exploitation (Google) ; le système décide du moment des sauvegardes et des restaurations</td>
     </tr>
     <tr>
       <td>Informations de connexion Google (e-mail, identifiant du compte)</td>

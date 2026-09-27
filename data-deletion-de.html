@@ -18,7 +18,8 @@
   <h2>1. In der App löschen (sofort)</h2>
   <ul>
     <li><b>Aufgabe löschen</b>: Zeile nach links wischen und „Löschen“ wählen. Die Aufgabe bleibt 30 Tage unter „Zuletzt gelöscht“, damit sie wiederhergestellt werden kann, und wird danach endgültig vom Gerät gelöscht.</li>
-    <li><b>Drive-Sicherung löschen</b>: Einstellungen &gt; Meine Infos &gt; Verbundenes Konto &gt; „Konto trennen &amp; Sicherungen löschen“. Die im app-eigenen Ordner (appDataFolder) des Google Drive des Nutzers gespeicherte Sicherung wird über die Google Drive API sofort gelöscht, die der App erteilte Drive-Berechtigung widerrufen und die Google-Anmeldung getrennt.</li>
+    <li><b>Drive-Sicherung löschen</b>: Einstellungen &gt; Meine Infos &gt; Verbundenes Konto &gt; „Konto trennen &amp; Sicherungen löschen“. Alle im app-eigenen Ordner (appDataFolder) des Google Drive des Nutzers gespeicherten Sicherungen werden über die Google Drive API sofort gelöscht, die der App erteilte Drive-Berechtigung widerrufen und die Google-Anmeldung getrennt.</li>
+    <li><b>Eine Drive-Sicherung löschen</b>: Einstellungen &gt; Meine Infos &gt; „Aus Drive wiederherstellen“ &gt; Löschsymbol rechts neben einer Sicherung. Nur die gewählte Sicherungsdatei wird über die Google Drive API sofort gelöscht.</li>
     <li><b>Abmelden</b>: Einstellungen &gt; Meine Infos &gt; „Abmelden“. Die Google-Anmeldung wird sofort getrennt. Die Drive-Sicherung bleibt erhalten und kann nach erneuter Anmeldung wiederhergestellt werden.</li>
     <li><b>Einträge auf diesem Gerät löschen</b>: Einstellungen &gt; Meine Infos &gt; „Daten zurücksetzen“. Alle Aufgaben, Unteraufgaben und der Verlauf auf diesem Gerät werden sofort gelöscht. Die Drive-Sicherung bleibt erhalten.</li>
     <li><b>App deinstallieren</b>: alle lokalen Einträge auf dem Gerät, einschließlich allem, was noch unter „Zuletzt gelöscht“ liegt, werden mitgelöscht.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Google-Drive-Sicherung (JSON-Kopie der lokalen Einträge)</td>
       <td>appDataFolder im Google Drive des Nutzers</td>
-      <td>Sofort mit „Konto trennen &amp; Sicherungen löschen“</td>
-      <td>Keine (nur die neueste Sicherung wird aufbewahrt; sie entsteht nur, wenn der Nutzer auf „Jetzt sichern“ tippt, nie automatisch)</td>
+      <td>Sofort mit dem Löschsymbol in der Liste „Aus Drive wiederherstellen“ (eine Sicherung) oder „Konto trennen &amp; Sicherungen löschen“ (alle)</td>
+      <td>Keine (bis zu 3 neueste Sicherungen werden aufbewahrt; sie entstehen nur, wenn der Nutzer auf „Jetzt sichern“ tippt, und die App sichert nie automatisch)</td>
+    </tr>
+    <tr>
+      <td>App-Daten in der Android-Gerätesicherung</td>
+      <td>Android-Gerätesicherung des Google-Kontos des Nutzers (Google)</td>
+      <td>In den Sicherungseinstellungen des Geräts ausschalten oder die Gerätesicherung im Google-Konto löschen</td>
+      <td>Nach der Richtlinie des Betriebssystems (Google); das Betriebssystem bestimmt, wann gesichert und wiederhergestellt wird</td>
     </tr>
     <tr>
       <td>Google-Anmeldedaten (E-Mail, Konto-ID)</td>

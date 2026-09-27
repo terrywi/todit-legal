@@ -31,6 +31,7 @@
     <li><b>[Ao fazer login, opcional] Informações da Conta do Google</b>: endereço de e-mail e identificador da Conta do Google, obtidos pelo login com o Google (OAuth). Todas as funções podem ser usadas sem limitação sem fazer login; o login só é necessário para usar o backup e a restauração com o Google Drive.</li>
     <li><b>[Criados pelo usuário ao usar o app, armazenados no dispositivo] Registros de tarefas</b>: títulos de tarefas, subtarefas, notas, datas e horários planejados, repetições, lembretes, escopo pessoal/trabalho, histórico de concluídas, ordem e configurações do app, como tema e idioma. Essas informações ficam somente no armazenamento do dispositivo (SQLite) e não são enviadas a servidores do Fornecedor (o Fornecedor não mantém servidor próprio).</li>
     <li><b>[Ao usar o backup] Dados de backup no Google Drive</b>: sempre que o usuário toca em “Fazer backup agora”, todos os registros locais acima são salvos em formato JSON no espaço exclusivo do app (appDataFolder) no Google Drive do próprio usuário. O app nunca faz backup automático. Esse espaço é privado — nem o próprio usuário consegue abri-lo pelo app do Google Drive — e nenhum terceiro, inclusive o Fornecedor, pode acessar esses dados.</li>
+    <li><b>[Backup do dispositivo Android] Dados do app</b>: os registros locais acima e as configurações do app podem ser incluídos no backup do dispositivo Android (Conta do Google). Esse é um recurso do sistema operacional Android: o sistema operacional decide quando o backup e a restauração acontecem, e o Fornecedor não pode acessar esses dados. O usuário pode desativá-lo nas configurações de backup do dispositivo.</li>
     <li><b>[Ao usar a entrada por voz, opcional] Voz</b>: o app só escuta enquanto o usuário mantém pressionado o botão do microfone. O serviço de reconhecimento de voz do dispositivo (por exemplo, o Google) transforma a fala em texto e, para isso, pode enviar o áudio aos próprios servidores. O Todit não armazena nem envia o áudio; apenas insere o texto resultante no campo.</li>
     <li><b>[Coletados automaticamente pelo SDK de publicidade] Identificador de publicidade e informações do dispositivo</b>: o Serviço exibe anúncios em banner pelo Google AdMob e, nesse processo, o Google pode coletar o identificador de publicidade (ID de publicidade), informações do dispositivo e dados de diagnóstico sobre impressões e cliques. O Fornecedor não coleta nem guarda essas informações diretamente; elas são tratadas conforme a política de privacidade do Google.</li>
   </ul>
@@ -41,7 +42,8 @@
     <li><b>Informações de login do Google</b>: são desvinculadas e descartadas imediatamente quando o usuário usa “Sair” ou “Desconectar conta e excluir backups”.</li>
     <li><b>Registros armazenados no dispositivo</b>: são excluídos do dispositivo assim que o usuário desinstala o app. Como não ficam guardados em servidores do Fornecedor, o usuário pode excluí-los por completo por conta própria.</li>
     <li><b>Tarefas excluídas</b>: para permitir recuperar o que foi apagado por engano, ficam em “Excluídas recentemente” <b>por 30 dias</b> e depois são excluídas definitivamente do dispositivo. O usuário pode apagá-las antes com “Redefinir dados” ou desinstalando o app.</li>
-    <li><b>Dados de backup no Google Drive</b>: no Drive do usuário fica guardado <b>somente o backup mais recente</b>; cada novo backup substitui o anterior. Ele é excluído imediatamente com “Desconectar conta e excluir backups”; se o usuário apenas usar “Sair”, o backup permanece e pode ser restaurado ao fazer login de novo.</li>
+    <li><b>Dados de backup no Google Drive</b>: no Drive do usuário ficam guardados <b>até os 3 backups mais recentes</b>; quando um novo backup passa de 3, o mais antigo é excluído. O usuário pode excluir backups um a um na lista “Restaurar do Drive”, e “Desconectar conta e excluir backups” exclui todos os backups imediatamente; se o usuário apenas usar “Sair”, os backups permanecem e podem ser restaurados ao fazer login de novo.</li>
+    <li><b>Backup do dispositivo Android</b>: as cópias incluídas no backup do dispositivo Android (Conta do Google) são mantidas e excluídas conforme a política de backup do sistema operacional (Google).</li>
     <li><b>Voz</b>: o Todit não guarda. O áudio tratado pelo serviço de reconhecimento de voz do dispositivo segue as políticas desse fornecedor.</li>
     <li><b>Identificador de publicidade e outros dados de diagnóstico</b>: seguem as políticas e os prazos de retenção do Google.</li>
   </ul>
@@ -57,7 +59,8 @@
   <ul>
     <li><b>Exportar registros</b> (Configurações &gt; Minhas informações &gt; Exportar para arquivo): baixar todos os registros do dispositivo como arquivo JSON para guardar ou transferir</li>
     <li><b>Excluídas recentemente</b> (Revisão &gt; Arquivo &gt; Excluídas recentemente): restaurar em até 30 dias; depois disso, são excluídas definitivamente</li>
-    <li><b>Excluir o backup do Drive</b> (Configurações &gt; Minhas informações &gt; Conta conectada &gt; “Desconectar conta e excluir backups”): exclui o backup salvo no Google Drive, revoga a permissão do Drive concedida ao app e desvincula o login do Google</li>
+    <li><b>Excluir um backup do Drive</b> (Configurações &gt; Minhas informações &gt; Restaurar do Drive &gt; ícone de excluir à direita de um backup): exclui somente o arquivo de backup escolhido</li>
+    <li><b>Excluir o backup do Drive</b> (Configurações &gt; Minhas informações &gt; Conta conectada &gt; “Desconectar conta e excluir backups”): exclui todos os backups salvos no Google Drive, revoga a permissão do Drive concedida ao app e desvincula o login do Google</li>
     <li><b>Sair</b> (Configurações &gt; Minhas informações &gt; Sair): desvincula o login do Google (o backup do Drive e os registros locais do dispositivo são mantidos)</li>
     <li><b>Redefinir dados</b> (Configurações &gt; Minhas informações &gt; Redefinir dados): exclui todas as tarefas, subtarefas e o histórico deste dispositivo (o backup do Drive é mantido)</li>
     <li><b>Revogar a permissão de notificações</b>: a qualquer momento nas configurações do sistema (só deixam de aparecer notificações; as demais funções continuam funcionando)</li>
@@ -68,7 +71,7 @@
 
   <h2>Artigo 6 (Medidas de segurança)</h2>
   <ul>
-    <li><b>Medidas técnicas</b>: os registros de tarefas ficam somente no armazenamento local do dispositivo (SQLite) e não são transmitidos para fora. A autenticação do Google usa o fluxo OAuth padrão do Google, e a comunicação com o Google Drive é criptografada com TLS. Os backups ficam no espaço privado exclusivo do app (appDataFolder) mesmo dentro do Drive do usuário, o que impede o acesso de terceiros.</li>
+    <li><b>Medidas técnicas</b>: os registros de tarefas ficam no armazenamento local do dispositivo (SQLite) e não são transmitidos para fora, exceto quando o usuário faz um backup no Drive ou quando são incluídos no backup do dispositivo Android. A autenticação do Google usa o fluxo OAuth padrão do Google, e a comunicação com o Google Drive é criptografada com TLS. Os backups ficam no espaço privado exclusivo do app (appDataFolder) mesmo dentro do Drive do usuário, o que impede o acesso de terceiros.</li>
     <li><b>Medidas administrativas</b>: o número de pessoas envolvidas no tratamento de dados pessoais é mantido no mínimo.</li>
   </ul>
 
@@ -109,7 +112,7 @@
   <p>Esta Política de Privacidade se aplica a partir de 4 de outubro de 2026. Se houver inclusão, exclusão ou alteração de conteúdo, o Fornecedor avisará a partir de 7 dias antes de a mudança entrar em vigor, por avisos no Serviço ou neste documento.</p>
   <p>O texto original desta Política está em coreano. As traduções para o inglês e outros 10 idiomas são oferecidas por conveniência; se uma tradução divergir do original, prevalece o original em coreano.</p>
   <p>Publicada: 27 de setembro de 2026<br>Em vigor: 4 de outubro de 2026</p>
-  <p>Histórico de revisões: primeira versão em 25 de setembro de 2026 · revisão publicada em 27 de setembro de 2026, em vigor a partir de 4 de outubro de 2026 (um único backup no Drive e somente backup manual; entrada por voz e permissão do microfone; caminhos de menu do app)</p>
+  <p>Histórico de revisões: primeira versão em 25 de setembro de 2026 · revisão publicada em 27 de setembro de 2026, em vigor a partir de 4 de outubro de 2026 (até 3 backups no Drive, que podem ser excluídos um a um, e somente backup manual; backup do dispositivo Android; entrada por voz e permissão do microfone; caminhos de menu do app)</p>
 
   <p class="contact">Contato: wwwtaekyu@gmail.com</p>
 </div>

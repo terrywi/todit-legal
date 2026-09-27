@@ -31,6 +31,7 @@
     <li><b>[Khi đăng nhập, tùy chọn] Thông tin Tài khoản Google</b>: địa chỉ email và mã định danh Tài khoản Google, lấy qua đăng nhập bằng Google (OAuth). Mọi chức năng đều dùng được không giới hạn mà không cần đăng nhập; chỉ cần đăng nhập khi muốn sao lưu và khôi phục bằng Google Drive.</li>
     <li><b>[Do người dùng tạo trong ứng dụng, lưu trên thiết bị] Bản ghi việc cần làm</b>: tiêu đề việc, việc con, ghi chú, ngày giờ dự định, lặp lại, lời nhắc, phạm vi cá nhân/công việc, lịch sử việc đã xong, thứ tự sắp xếp và các cài đặt ứng dụng như giao diện, ngôn ngữ. Những thông tin này chỉ nằm trong bộ nhớ thiết bị (SQLite) và không được gửi tới máy chủ của Nhà cung cấp (Nhà cung cấp không vận hành máy chủ riêng).</li>
     <li><b>[Khi dùng sao lưu] Dữ liệu sao lưu trên Google Drive</b>: mỗi lần người dùng nhấn “Sao lưu ngay”, toàn bộ bản ghi cục bộ nêu trên được lưu ở định dạng JSON vào vùng riêng của ứng dụng (appDataFolder) trong Google Drive của chính người dùng. Ứng dụng không bao giờ tự động sao lưu. Vùng này là vùng riêng tư — ngay cả người dùng cũng không mở được từ ứng dụng Google Drive — và không bên thứ ba nào, kể cả Nhà cung cấp, truy cập được dữ liệu này.</li>
+    <li><b>[Sao lưu thiết bị Android] Dữ liệu ứng dụng</b>: bản ghi cục bộ nêu trên và cài đặt của ứng dụng có thể được đưa vào bản sao lưu thiết bị Android (tài khoản Google). Đây là tính năng của hệ điều hành Android: hệ điều hành quyết định thời điểm sao lưu và khôi phục, và Nhà cung cấp không truy cập được dữ liệu này. Người dùng có thể tắt tính năng này trong cài đặt sao lưu của thiết bị.</li>
     <li><b>[Khi dùng nhập bằng giọng nói, tùy chọn] Giọng nói</b>: ứng dụng chỉ nghe trong lúc người dùng nhấn giữ nút micrô. Dịch vụ nhận dạng giọng nói của thiết bị (ví dụ Google) chuyển lời nói thành văn bản và để làm vậy có thể gửi âm thanh tới máy chủ của họ. Todit không lưu hay gửi âm thanh; ứng dụng chỉ điền văn bản thu được vào ô.</li>
     <li><b>[Do SDK quảng cáo tự động thu thập] Mã nhận dạng quảng cáo và thông tin thiết bị</b>: Dịch vụ hiển thị quảng cáo biểu ngữ qua Google AdMob, và trong quá trình đó Google có thể thu thập mã nhận dạng quảng cáo, thông tin thiết bị và dữ liệu chẩn đoán về lượt hiển thị, lượt nhấp. Nhà cung cấp không trực tiếp thu thập hay lưu giữ những thông tin này; chúng được xử lý theo chính sách quyền riêng tư của Google.</li>
   </ul>
@@ -41,7 +42,8 @@
     <li><b>Thông tin đăng nhập Google</b>: được ngắt kết nối và hủy ngay khi người dùng chọn “Đăng xuất” hoặc “Ngắt kết nối tài khoản và xóa bản sao lưu”.</li>
     <li><b>Bản ghi trên thiết bị</b>: bị xóa khỏi thiết bị ngay khi người dùng gỡ ứng dụng. Vì không có gì lưu trên máy chủ của Nhà cung cấp, người dùng có thể tự xóa hoàn toàn.</li>
     <li><b>Việc đã xóa</b>: để có thể khôi phục thứ lỡ xóa, việc đã xóa được giữ trong “Đã xóa gần đây” <b>30 ngày</b>, sau đó bị xóa vĩnh viễn khỏi thiết bị. Người dùng có thể xóa sớm hơn bằng “Đặt lại dữ liệu” hoặc gỡ ứng dụng.</li>
-    <li><b>Dữ liệu sao lưu trên Google Drive</b>: trong Drive của người dùng <b>chỉ giữ bản sao lưu mới nhất</b>; mỗi bản sao lưu mới thay cho bản trước. Bản sao lưu bị xóa ngay khi chọn “Ngắt kết nối tài khoản và xóa bản sao lưu”; nếu người dùng chỉ “Đăng xuất”, bản sao lưu vẫn còn và có thể khôi phục sau khi đăng nhập lại.</li>
+    <li><b>Dữ liệu sao lưu trên Google Drive</b>: trong Drive của người dùng <b>giữ tối đa 3 bản sao lưu mới nhất</b>; khi bản sao lưu mới làm vượt quá 3 bản, bản cũ nhất bị xóa. Người dùng có thể xóa từng bản sao lưu trong danh sách “Khôi phục từ Drive”, và “Ngắt kết nối tài khoản và xóa bản sao lưu” xóa ngay mọi bản sao lưu; nếu người dùng chỉ “Đăng xuất”, bản sao lưu vẫn còn và có thể khôi phục sau khi đăng nhập lại.</li>
+    <li><b>Sao lưu thiết bị Android</b>: bản sao trong bản sao lưu thiết bị Android (tài khoản Google) được lưu giữ và xóa theo chính sách sao lưu của hệ điều hành (Google).</li>
     <li><b>Giọng nói</b>: Todit không lưu giữ. Âm thanh do dịch vụ nhận dạng giọng nói của thiết bị xử lý tuân theo chính sách của nhà cung cấp dịch vụ đó.</li>
     <li><b>Mã nhận dạng quảng cáo và dữ liệu chẩn đoán khác</b>: tuân theo chính sách và thời hạn lưu giữ của Google.</li>
   </ul>
@@ -57,7 +59,8 @@
   <ul>
     <li><b>Xuất bản ghi</b> (Cài đặt &gt; Thông tin của tôi &gt; Xuất ra tệp): tải toàn bộ bản ghi trên thiết bị dưới dạng tệp JSON để lưu giữ hoặc chuyển đi</li>
     <li><b>Đã xóa gần đây</b> (Nhìn lại &gt; Lưu trữ &gt; Đã xóa gần đây): khôi phục trong vòng 30 ngày; sau đó bị xóa vĩnh viễn</li>
-    <li><b>Xóa bản sao lưu Drive</b> (Cài đặt &gt; Thông tin của tôi &gt; Tài khoản đã kết nối &gt; “Ngắt kết nối tài khoản và xóa bản sao lưu”): xóa bản sao lưu trên Google Drive, thu hồi quyền Drive đã cấp cho ứng dụng và ngắt đăng nhập Google</li>
+    <li><b>Xóa một bản sao lưu Drive</b> (Cài đặt &gt; Thông tin của tôi &gt; Khôi phục từ Drive &gt; biểu tượng xóa bên phải bản sao lưu): chỉ xóa tệp sao lưu đã chọn</li>
+    <li><b>Xóa bản sao lưu Drive</b> (Cài đặt &gt; Thông tin của tôi &gt; Tài khoản đã kết nối &gt; “Ngắt kết nối tài khoản và xóa bản sao lưu”): xóa mọi bản sao lưu trên Google Drive, thu hồi quyền Drive đã cấp cho ứng dụng và ngắt đăng nhập Google</li>
     <li><b>Đăng xuất</b> (Cài đặt &gt; Thông tin của tôi &gt; Đăng xuất): ngắt đăng nhập Google (bản sao lưu Drive và bản ghi cục bộ trên thiết bị vẫn được giữ)</li>
     <li><b>Đặt lại dữ liệu</b> (Cài đặt &gt; Thông tin của tôi &gt; Đặt lại dữ liệu): xóa mọi việc, việc con và lịch sử trên thiết bị này (bản sao lưu Drive vẫn được giữ)</li>
     <li><b>Thu hồi quyền thông báo</b>: bất cứ lúc nào trong cài đặt hệ thống (chỉ ngừng thông báo; các chức năng khác vẫn hoạt động)</li>
@@ -68,7 +71,7 @@
 
   <h2>Điều 6 (Biện pháp bảo mật)</h2>
   <ul>
-    <li><b>Biện pháp kỹ thuật</b>: bản ghi việc cần làm chỉ lưu trong bộ nhớ cục bộ của thiết bị (SQLite) và không được truyền ra ngoài. Xác thực Google dùng quy trình OAuth chuẩn của Google, và kết nối với Google Drive được mã hóa bằng TLS. Bản sao lưu được lưu trong vùng riêng tư của ứng dụng (appDataFolder) ngay cả trong Drive của người dùng, ngăn bên thứ ba truy cập.</li>
+    <li><b>Biện pháp kỹ thuật</b>: bản ghi việc cần làm được lưu trong bộ nhớ cục bộ của thiết bị (SQLite) và không được truyền ra ngoài, trừ khi người dùng sao lưu lên Drive hoặc bản ghi được đưa vào bản sao lưu thiết bị Android. Xác thực Google dùng quy trình OAuth chuẩn của Google, và kết nối với Google Drive được mã hóa bằng TLS. Bản sao lưu được lưu trong vùng riêng tư của ứng dụng (appDataFolder) ngay cả trong Drive của người dùng, ngăn bên thứ ba truy cập.</li>
     <li><b>Biện pháp quản lý</b>: số người tham gia xử lý dữ liệu cá nhân được giữ ở mức tối thiểu.</li>
   </ul>
 
@@ -109,7 +112,7 @@
   <p>Chính sách quyền riêng tư này áp dụng từ ngày 4/10/2026. Nếu có nội dung được thêm, bỏ hoặc sửa, Nhà cung cấp sẽ thông báo từ 7 ngày trước khi thay đổi có hiệu lực, qua thông báo trong Dịch vụ hoặc trong tài liệu này.</p>
   <p>Bản gốc của Chính sách này bằng tiếng Hàn. Bản dịch sang tiếng Anh và 10 ngôn ngữ khác được cung cấp để tiện theo dõi; nếu bản dịch khác với bản gốc, bản gốc tiếng Hàn được ưu tiên áp dụng.</p>
   <p>Công bố: 27/9/2026<br>Có hiệu lực: 4/10/2026</p>
-  <p>Lịch sử sửa đổi: phiên bản đầu tiên ngày 25/9/2026 · bản sửa đổi công bố ngày 27/9/2026, có hiệu lực từ ngày 4/10/2026 (chỉ giữ một bản sao lưu Drive và chỉ sao lưu thủ công; nhập bằng giọng nói và quyền micrô; đường dẫn menu của ứng dụng)</p>
+  <p>Lịch sử sửa đổi: phiên bản đầu tiên ngày 25/9/2026 · bản sửa đổi công bố ngày 27/9/2026, có hiệu lực từ ngày 4/10/2026 (giữ tối đa 3 bản sao lưu Drive, xóa được từng bản, và chỉ sao lưu thủ công; sao lưu thiết bị Android; nhập bằng giọng nói và quyền micrô; đường dẫn menu của ứng dụng)</p>
 
   <p class="contact">Liên hệ: wwwtaekyu@gmail.com</p>
 </div>

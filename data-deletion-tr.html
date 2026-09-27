@@ -18,7 +18,8 @@
   <h2>1. Uygulamada silme (hemen)</h2>
   <ul>
     <li><b>Görev silme</b>: satırı sola kaydırıp “Sil”i seçin. Görev, geri alınabilmesi için 30 gün “Son silinenler”de kalır, sonra cihazdan kalıcı olarak silinir.</li>
-    <li><b>Drive yedeğini silme</b>: Ayarlar &gt; Bilgilerim &gt; Bağlı hesap &gt; “Hesabı ayır ve yedekleri sil”. Kullanıcının Google Drive’ındaki uygulamaya ayrılmış klasörde (appDataFolder) duran yedek Google Drive API ile hemen silinir, uygulamaya verilen Drive izni iptal edilir ve Google oturumunun bağlantısı kesilir.</li>
+    <li><b>Drive yedeğini silme</b>: Ayarlar &gt; Bilgilerim &gt; Bağlı hesap &gt; “Hesabı ayır ve yedekleri sil”. Kullanıcının Google Drive’ındaki uygulamaya ayrılmış klasörde (appDataFolder) duran tüm yedekler Google Drive API ile hemen silinir, uygulamaya verilen Drive izni iptal edilir ve Google oturumunun bağlantısı kesilir.</li>
+    <li><b>Tek bir Drive yedeğini silme</b>: Ayarlar &gt; Bilgilerim &gt; “Drive’dan geri yükle” &gt; yedeğin sağındaki silme simgesi. Yalnızca seçilen yedek dosyası Google Drive API ile hemen silinir.</li>
     <li><b>Oturumu kapatma</b>: Ayarlar &gt; Bilgilerim &gt; “Oturumu kapat”. Google oturumunun bağlantısı hemen kesilir. Drive yedeği kalır ve yeniden oturum açınca geri yüklenebilir.</li>
     <li><b>Bu cihazdaki kayıtları silme</b>: Ayarlar &gt; Bilgilerim &gt; “Verileri sıfırla”. Bu cihazdaki tüm görevler, alt görevler ve geçmiş hemen silinir. Drive yedeği kalır.</li>
     <li><b>Uygulamayı kaldırma</b>: “Son silinenler”de duranlar dahil cihazdaki tüm yerel kayıtlar da silinir.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Google Drive yedeği (yerel kayıtların JSON kopyası)</td>
       <td>Kullanıcının Google Drive’ındaki appDataFolder</td>
-      <td>“Hesabı ayır ve yedekleri sil” ile hemen</td>
-      <td>Yok (yalnızca en son yedek tutulur; yalnızca kullanıcı “Şimdi yedekle”ye dokunduğunda oluşturulur, asla otomatik değil)</td>
+      <td>“Drive’dan geri yükle” listesindeki silme simgesiyle (bir yedek) veya “Hesabı ayır ve yedekleri sil” ile (tümü) hemen</td>
+      <td>Yok (en son 3 yedeğe kadar tutulur; yalnızca kullanıcı “Şimdi yedekle”ye dokunduğunda oluşturulur, uygulama asla otomatik yedekleme yapmaz)</td>
+    </tr>
+    <tr>
+      <td>Android cihaz yedeğine dahil edilen uygulama verileri</td>
+      <td>Kullanıcının Google hesabındaki Android cihaz yedeği (Google)</td>
+      <td>Cihazın yedekleme ayarlarından kapatmak veya Google hesabından cihaz yedeğini silmek</td>
+      <td>İşletim sisteminin (Google) politikasına göre; yedekleme ve geri yükleme zamanını işletim sistemi belirler</td>
     </tr>
     <tr>
       <td>Google oturum bilgileri (e-posta, hesap kimliği)</td>

@@ -31,6 +31,7 @@
     <li><b>[Oturum açılırsa, isteğe bağlı] Google hesabı bilgileri</b>: e-posta adresi ve Google hesap kimliği; Google ile oturum açma (OAuth) sırasında alınır. Tüm işlevler oturum açmadan sınırsız kullanılabilir; oturum açmak yalnızca Google Drive ile yedekleme ve geri yükleme için gerekir.</li>
     <li><b>[Kullanıcının uygulamada oluşturduğu, cihazda saklanan] Görev kayıtları</b>: görev başlıkları, alt görevler, notlar, planlanan tarih ve saatler, tekrarlar, hatırlatıcılar, kişisel/iş kapsamı, tamamlananların geçmişi, sıralama ve tema, dil gibi uygulama ayarları. Bu bilgiler yalnızca cihaz depolamasında (SQLite) tutulur ve Sağlayıcı’nın sunucularına gönderilmez (Sağlayıcı’nın kendi sunucusu yoktur).</li>
     <li><b>[Yedekleme kullanılırsa] Google Drive yedek verisi</b>: Kullanıcı her “Şimdi yedekle”ye dokunduğunda yukarıdaki tüm yerel kayıtlar JSON biçiminde kullanıcının Google Drive’ındaki uygulamaya ayrılmış alana (appDataFolder) kaydedilir. Uygulama asla otomatik yedekleme yapmaz. Bu alan gizlidir — kullanıcı bile Google Drive uygulamasından açamaz — ve Sağlayıcı dahil hiçbir üçüncü taraf bu verilere erişemez.</li>
+    <li><b>[Android cihaz yedeği] Uygulama verileri</b>: Yukarıdaki yerel kayıtlar ve uygulama ayarları Android cihaz yedeğine (Google hesabı) dahil edilebilir. Bu, Android işletim sisteminin bir özelliğidir: yedekleme ve geri yükleme zamanını işletim sistemi belirler ve Sağlayıcı bu verilere erişemez. Kullanıcı bunu cihazın yedekleme ayarlarından kapatabilir.</li>
     <li><b>[Sesle giriş kullanılırsa, isteğe bağlı] Ses</b>: Uygulama yalnızca kullanıcı mikrofon düğmesini basılı tuttuğu sürece dinler. Cihazın konuşma tanıma hizmeti (ör. Google) konuşmayı metne çevirir ve bunun için sesi kendi sunucularına gönderebilir. Todit sesi saklamaz veya göndermez; yalnızca ortaya çıkan metni alana yazar.</li>
     <li><b>[Reklam SDK’sı ile otomatik toplanan] Reklam kimliği ve cihaz bilgileri</b>: Hizmet, Google AdMob ile banner reklam gösterir; bu sırada Google reklam kimliğini, cihaz bilgilerini ve gösterim/tıklamalarla ilgili tanılama verilerini toplayabilir. Bu bilgileri Sağlayıcı doğrudan toplamaz veya saklamaz; Google’ın gizlilik politikasına göre işlenir.</li>
   </ul>
@@ -41,7 +42,8 @@
     <li><b>Google oturum bilgileri</b>: Kullanıcı “Oturumu kapat” veya “Hesabı ayır ve yedekleri sil”i seçtiğinde hemen bağlantısı kesilir ve silinir.</li>
     <li><b>Cihazda saklanan kayıtlar</b>: Kullanıcı uygulamayı kaldırdığı anda cihazdan silinir. Sağlayıcı’nın sunucularında hiçbir şey tutulmadığı için kullanıcı her şeyi kendisi tamamen silebilir.</li>
     <li><b>Silinen görevler</b>: Yanlışlıkla silinenler geri alınabilsin diye <b>30 gün</b> “Son silinenler”de kalır, sonra cihazdan kalıcı olarak silinir. Kullanıcı bunları daha önce “Verileri sıfırla” ile veya uygulamayı kaldırarak silebilir.</li>
-    <li><b>Google Drive yedek verisi</b>: Kullanıcının Drive’ında <b>yalnızca en son yedek</b> tutulur; her yeni yedek öncekinin yerine geçer. “Hesabı ayır ve yedekleri sil” ile hemen silinir; kullanıcı yalnızca “Oturumu kapat”ı seçerse yedek kalır ve yeniden oturum açınca geri yüklenebilir.</li>
+    <li><b>Google Drive yedek verisi</b>: Kullanıcının Drive’ında <b>en son 3 yedeğe kadar</b> tutulur; yeni bir yedekle sayı 3’ü aşarsa en eski yedek silinir. Kullanıcı “Drive’dan geri yükle” listesinden yedekleri tek tek silebilir; “Hesabı ayır ve yedekleri sil” tüm yedekleri hemen siler. Kullanıcı yalnızca “Oturumu kapat”ı seçerse yedekler kalır ve yeniden oturum açınca geri yüklenebilir.</li>
+    <li><b>Android cihaz yedeği</b>: Android cihaz yedeğine (Google hesabı) dahil edilen kopyalar işletim sisteminin (Google) yedekleme politikasına göre saklanır ve silinir.</li>
     <li><b>Ses</b>: Todit saklamaz. Cihazın konuşma tanıma hizmetinin işlediği ses, o sağlayıcının politikalarına tabidir.</li>
     <li><b>Reklam kimliği ve diğer tanılama verileri</b>: Google’ın ilgili politikalarına ve saklama sürelerine tabidir.</li>
   </ul>
@@ -57,7 +59,8 @@
   <ul>
     <li><b>Kayıtları dışa aktarma</b> (Ayarlar &gt; Bilgilerim &gt; Dosyaya aktar): cihazdaki tüm kayıtları saklamak veya taşımak için JSON dosyası olarak indirme</li>
     <li><b>Son silinenler</b> (Değerlendirme &gt; Arşiv &gt; Son silinenler): 30 gün içinde geri yükleme; sonra kalıcı silme</li>
-    <li><b>Drive yedeğini silme</b> (Ayarlar &gt; Bilgilerim &gt; Bağlı hesap &gt; “Hesabı ayır ve yedekleri sil”): Google Drive’daki yedeği siler, uygulamaya verilen Drive iznini iptal eder ve Google oturumunun bağlantısını keser</li>
+    <li><b>Tek bir Drive yedeğini silme</b> (Ayarlar &gt; Bilgilerim &gt; Drive’dan geri yükle &gt; yedeğin sağındaki silme simgesi): yalnızca seçilen yedek dosyasını siler</li>
+    <li><b>Drive yedeğini silme</b> (Ayarlar &gt; Bilgilerim &gt; Bağlı hesap &gt; “Hesabı ayır ve yedekleri sil”): Google Drive’daki tüm yedekleri siler, uygulamaya verilen Drive iznini iptal eder ve Google oturumunun bağlantısını keser</li>
     <li><b>Oturumu kapat</b> (Ayarlar &gt; Bilgilerim &gt; Oturumu kapat): Google oturumunun bağlantısını keser (Drive yedeği ve cihazdaki yerel kayıtlar korunur)</li>
     <li><b>Verileri sıfırla</b> (Ayarlar &gt; Bilgilerim &gt; Verileri sıfırla): bu cihazdaki tüm görevleri, alt görevleri ve geçmişi siler (Drive yedeği korunur)</li>
     <li><b>Bildirim iznini geri alma</b>: istediği zaman sistem ayarlarından (yalnızca bildirimler durur; diğer işlevler çalışmaya devam eder)</li>
@@ -68,7 +71,7 @@
 
   <h2>Madde 6 (Güvenlik önlemleri)</h2>
   <ul>
-    <li><b>Teknik önlemler</b>: Görev kayıtları yalnızca cihazın yerel depolamasında (SQLite) tutulur ve dışarı aktarılmaz. Google kimlik doğrulaması Google’ın standart OAuth akışını kullanır; Google Drive ile iletişim TLS ile şifrelenir. Yedekler, kullanıcının kendi Drive’ında bile uygulamaya ayrılmış gizli alanda (appDataFolder) saklanır ve üçüncü tarafların erişimi engellenir.</li>
+    <li><b>Teknik önlemler</b>: Görev kayıtları cihazın yerel depolamasında (SQLite) tutulur; kullanıcının Drive yedeği alması veya kayıtların Android cihaz yedeğine dahil edilmesi dışında dışarı aktarılmaz. Google kimlik doğrulaması Google’ın standart OAuth akışını kullanır; Google Drive ile iletişim TLS ile şifrelenir. Yedekler, kullanıcının kendi Drive’ında bile uygulamaya ayrılmış gizli alanda (appDataFolder) saklanır ve üçüncü tarafların erişimi engellenir.</li>
     <li><b>İdari önlemler</b>: Kişisel verilerin işlenmesinde görev alan kişi sayısı en aza indirilir.</li>
   </ul>
 
@@ -109,7 +112,7 @@
   <p>Bu Gizlilik Politikası 4 Ekim 2026’dan itibaren geçerlidir. İçerik eklenir, çıkarılır veya değiştirilirse Sağlayıcı, değişikliğin yürürlüğe girmesinden 7 gün önceden itibaren Hizmet içindeki duyurularla veya bu belgede bildirir.</p>
   <p>Bu Politika’nın asıl metni Korecedir. İngilizce ve 10 dile daha çeviriler kolaylık için sunulur; bir çeviri asıl metinden farklıysa Korece asıl metin geçerlidir.</p>
   <p>Yayımlanma: 27 Eylül 2026<br>Yürürlük: 4 Ekim 2026</p>
-  <p>Değişiklik geçmişi: ilk sürüm 25 Eylül 2026 · değişiklik 27 Eylül 2026’da yayımlandı, 4 Ekim 2026’da yürürlüğe girer (Drive’da tek yedek ve yalnızca elle yedekleme; sesle giriş ve mikrofon izni; uygulama menü yolları)</p>
+  <p>Değişiklik geçmişi: ilk sürüm 25 Eylül 2026 · değişiklik 27 Eylül 2026’da yayımlandı, 4 Ekim 2026’da yürürlüğe girer (Drive’da en fazla 3 yedek ve tek tek silme, yalnızca elle yedekleme; Android cihaz yedeği; sesle giriş ve mikrofon izni; uygulama menü yolları)</p>
 
   <p class="contact">İletişim: wwwtaekyu@gmail.com</p>
 </div>

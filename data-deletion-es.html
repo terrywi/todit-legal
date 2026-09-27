@@ -18,7 +18,8 @@
   <h2>1. Eliminar desde la app (inmediato)</h2>
   <ul>
     <li><b>Eliminar una tarea</b>: desliza la fila hacia la izquierda y elige «Eliminar». La tarea se conserva 30 días en «Eliminadas recientemente» por si quieres recuperarla y después se elimina definitivamente del dispositivo.</li>
-    <li><b>Eliminar la copia de Drive</b>: Ajustes &gt; Mi información &gt; Cuenta conectada &gt; «Desconectar cuenta y eliminar copias». La copia guardada en la carpeta exclusiva de la app (appDataFolder) del Google Drive del usuario se elimina de inmediato mediante la API de Google Drive, se revoca el permiso de Drive concedido a la app y se desvincula el inicio de sesión de Google.</li>
+    <li><b>Eliminar la copia de Drive</b>: Ajustes &gt; Mi información &gt; Cuenta conectada &gt; «Desconectar cuenta y eliminar copias». Todas las copias guardadas en la carpeta exclusiva de la app (appDataFolder) del Google Drive del usuario se eliminan de inmediato mediante la API de Google Drive, se revoca el permiso de Drive concedido a la app y se desvincula el inicio de sesión de Google.</li>
+    <li><b>Eliminar una copia de Drive</b>: Ajustes &gt; Mi información &gt; «Restaurar desde Drive» &gt; icono de eliminar a la derecha de una copia. Solo el archivo de copia elegido se elimina de inmediato mediante la API de Google Drive.</li>
     <li><b>Cerrar sesión</b>: Ajustes &gt; Mi información &gt; «Cerrar sesión». El inicio de sesión de Google se desvincula de inmediato. La copia de Drive se mantiene y puede restaurarse al volver a iniciar sesión.</li>
     <li><b>Eliminar los registros de este dispositivo</b>: Ajustes &gt; Mi información &gt; «Restablecer datos». Se eliminan de inmediato todas las tareas, subtareas e historial de este dispositivo. La copia de Drive se mantiene.</li>
     <li><b>Desinstalar la app</b>: se eliminan con ella todos los registros locales del dispositivo, incluido lo que siga en «Eliminadas recientemente».</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Copia de Google Drive (copia JSON de los registros locales)</td>
       <td>appDataFolder del Google Drive del usuario</td>
-      <td>De inmediato con «Desconectar cuenta y eliminar copias»</td>
-      <td>Ninguna (solo se conserva la copia más reciente; se crea únicamente cuando el usuario pulsa «Hacer copia ahora», nunca de forma automática)</td>
+      <td>De inmediato con el icono de eliminar de la lista «Restaurar desde Drive» (una copia) o con «Desconectar cuenta y eliminar copias» (todas)</td>
+      <td>Ninguna (se conservan hasta las 3 copias más recientes; se crean únicamente cuando el usuario pulsa «Hacer copia ahora», y la app nunca hace copias automáticas)</td>
+    </tr>
+    <tr>
+      <td>Datos de la app incluidos en la copia del dispositivo Android</td>
+      <td>Copia del dispositivo Android de la cuenta de Google del usuario (Google)</td>
+      <td>Desactivarla en los ajustes de copia de seguridad del dispositivo o eliminar la copia del dispositivo desde la cuenta de Google</td>
+      <td>Según la política del sistema operativo (Google); el sistema operativo decide cuándo se hacen las copias y restauraciones</td>
     </tr>
     <tr>
       <td>Información de inicio de sesión de Google (correo, identificador de la cuenta)</td>

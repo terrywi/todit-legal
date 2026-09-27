@@ -18,7 +18,8 @@
   <h2>1. Xóa trong ứng dụng (ngay lập tức)</h2>
   <ul>
     <li><b>Xóa một việc</b>: vuốt dòng sang trái rồi chọn “Xóa”. Việc được giữ 30 ngày trong “Đã xóa gần đây” để có thể khôi phục, sau đó bị xóa vĩnh viễn khỏi thiết bị.</li>
-    <li><b>Xóa bản sao lưu Drive</b>: Cài đặt &gt; Thông tin của tôi &gt; Tài khoản đã kết nối &gt; “Ngắt kết nối tài khoản và xóa bản sao lưu”. Bản sao lưu trong thư mục riêng của ứng dụng (appDataFolder) trên Google Drive của người dùng bị xóa ngay qua Google Drive API, quyền Drive đã cấp cho ứng dụng bị thu hồi và đăng nhập Google bị ngắt.</li>
+    <li><b>Xóa bản sao lưu Drive</b>: Cài đặt &gt; Thông tin của tôi &gt; Tài khoản đã kết nối &gt; “Ngắt kết nối tài khoản và xóa bản sao lưu”. Mọi bản sao lưu trong thư mục riêng của ứng dụng (appDataFolder) trên Google Drive của người dùng bị xóa ngay qua Google Drive API, quyền Drive đã cấp cho ứng dụng bị thu hồi và đăng nhập Google bị ngắt.</li>
+    <li><b>Xóa một bản sao lưu Drive</b>: Cài đặt &gt; Thông tin của tôi &gt; “Khôi phục từ Drive” &gt; biểu tượng xóa bên phải bản sao lưu. Chỉ tệp sao lưu đã chọn bị xóa ngay qua Google Drive API.</li>
     <li><b>Đăng xuất</b>: Cài đặt &gt; Thông tin của tôi &gt; “Đăng xuất”. Đăng nhập Google bị ngắt ngay. Bản sao lưu Drive vẫn còn và có thể khôi phục sau khi đăng nhập lại.</li>
     <li><b>Xóa bản ghi trên thiết bị này</b>: Cài đặt &gt; Thông tin của tôi &gt; “Đặt lại dữ liệu”. Mọi việc, việc con và lịch sử trên thiết bị này bị xóa ngay. Bản sao lưu Drive vẫn còn.</li>
     <li><b>Gỡ ứng dụng</b>: mọi bản ghi cục bộ trên thiết bị, kể cả những gì còn trong “Đã xóa gần đây”, bị xóa theo.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Bản sao lưu Google Drive (bản sao JSON của bản ghi cục bộ)</td>
       <td>appDataFolder trong Google Drive của người dùng</td>
-      <td>Ngay khi chọn “Ngắt kết nối tài khoản và xóa bản sao lưu”</td>
-      <td>Không (chỉ giữ bản sao lưu mới nhất; chỉ được tạo khi người dùng nhấn “Sao lưu ngay”, không bao giờ tự động)</td>
+      <td>Ngay khi nhấn biểu tượng xóa trong danh sách “Khôi phục từ Drive” (một bản) hoặc chọn “Ngắt kết nối tài khoản và xóa bản sao lưu” (tất cả)</td>
+      <td>Không (giữ tối đa 3 bản sao lưu mới nhất; chỉ được tạo khi người dùng nhấn “Sao lưu ngay”, ứng dụng không bao giờ tự động sao lưu)</td>
+    </tr>
+    <tr>
+      <td>Dữ liệu ứng dụng trong bản sao lưu thiết bị Android</td>
+      <td>Bản sao lưu thiết bị Android trong tài khoản Google của người dùng (Google)</td>
+      <td>Tắt trong cài đặt sao lưu của thiết bị hoặc xóa bản sao lưu thiết bị khỏi tài khoản Google</td>
+      <td>Theo chính sách của hệ điều hành (Google); hệ điều hành quyết định thời điểm sao lưu và khôi phục</td>
     </tr>
     <tr>
       <td>Thông tin đăng nhập Google (email, mã định danh tài khoản)</td>

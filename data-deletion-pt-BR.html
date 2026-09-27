@@ -18,7 +18,8 @@
   <h2>1. Excluir no app (imediato)</h2>
   <ul>
     <li><b>Excluir uma tarefa</b>: deslize a linha para a esquerda e escolha “Excluir”. A tarefa fica 30 dias em “Excluídas recentemente” para que possa ser recuperada e depois é excluída definitivamente do dispositivo.</li>
-    <li><b>Excluir o backup do Drive</b>: Configurações &gt; Minhas informações &gt; Conta conectada &gt; “Desconectar conta e excluir backups”. O backup salvo na pasta exclusiva do app (appDataFolder) no Google Drive do usuário é excluído imediatamente pela API do Google Drive, a permissão do Drive concedida ao app é revogada e o login do Google é desvinculado.</li>
+    <li><b>Excluir o backup do Drive</b>: Configurações &gt; Minhas informações &gt; Conta conectada &gt; “Desconectar conta e excluir backups”. Todos os backups salvos na pasta exclusiva do app (appDataFolder) no Google Drive do usuário são excluídos imediatamente pela API do Google Drive, a permissão do Drive concedida ao app é revogada e o login do Google é desvinculado.</li>
+    <li><b>Excluir um backup do Drive</b>: Configurações &gt; Minhas informações &gt; “Restaurar do Drive” &gt; ícone de excluir à direita de um backup. Somente o arquivo de backup escolhido é excluído imediatamente pela API do Google Drive.</li>
     <li><b>Sair</b>: Configurações &gt; Minhas informações &gt; “Sair”. O login do Google é desvinculado imediatamente. O backup do Drive é mantido e pode ser restaurado ao fazer login de novo.</li>
     <li><b>Excluir os registros deste dispositivo</b>: Configurações &gt; Minhas informações &gt; “Redefinir dados”. Todas as tarefas, subtarefas e o histórico deste dispositivo são excluídos imediatamente. O backup do Drive é mantido.</li>
     <li><b>Desinstalar o app</b>: todos os registros locais do dispositivo, inclusive o que ainda estiver em “Excluídas recentemente”, são excluídos junto.</li>
@@ -45,8 +46,14 @@
     <tr>
       <td>Backup do Google Drive (cópia JSON dos registros locais)</td>
       <td>appDataFolder do Google Drive do usuário</td>
-      <td>Imediatamente com “Desconectar conta e excluir backups”</td>
-      <td>Nenhuma (somente o backup mais recente é mantido; ele só é criado quando o usuário toca em “Fazer backup agora”, nunca automaticamente)</td>
+      <td>Imediatamente com o ícone de excluir na lista “Restaurar do Drive” (um backup) ou com “Desconectar conta e excluir backups” (todos)</td>
+      <td>Nenhuma (até os 3 backups mais recentes são mantidos; eles só são criados quando o usuário toca em “Fazer backup agora”, e o app nunca faz backup automático)</td>
+    </tr>
+    <tr>
+      <td>Dados do app incluídos no backup do dispositivo Android</td>
+      <td>Backup do dispositivo Android da Conta do Google do usuário (Google)</td>
+      <td>Desativar nas configurações de backup do dispositivo ou excluir o backup do dispositivo na Conta do Google</td>
+      <td>Conforme a política do sistema operacional (Google); o sistema operacional decide quando o backup e a restauração acontecem</td>
     </tr>
     <tr>
       <td>Informações de login do Google (e-mail, identificador da conta)</td>
